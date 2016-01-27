@@ -1,11 +1,18 @@
 package group11.cse110.com.serviceforservice;
 
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+
+
+import com.parse.Parse;
+import com.parse.ParseACL;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 public class MainActivity extends Activity {
 
@@ -13,6 +20,16 @@ public class MainActivity extends Activity {
     private String user;
     private Intent homePage;
     protected void onCreate(Bundle savedInstanceState){
+        // Enable Local Datastore.
+        Parse.enableLocalDatastore(this) ;
+// Add your initialization code here Parse.initialize( this) ; ParseUser.enableAutomaticUser( ); ParseACL defaultACL = new ParseACL(); // Optionally enable public read access. // defaultACL.setPublicReadAccess﴾true﴿;
+
+        Parse.initialize(this);
+        ParseUser.enableAutomaticUser();
+        ParseACL defaultACL = new ParseACL();
+        defaultACL.setPublicReadAccess(true);
+        ParseACL.setDefaultACL(defaultACL, true) ;
+
         super.onCreate(savedInstanceState);
         SharedPreferences sp = getSharedPreferences(key,0);
         try{
@@ -23,6 +40,9 @@ public class MainActivity extends Activity {
 
         }
         Log.e("HMM","okay");
+
+
+
         if(user != null){
             Log.e("not null","not null");
 

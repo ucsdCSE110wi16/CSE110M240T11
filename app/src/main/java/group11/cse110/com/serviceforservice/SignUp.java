@@ -43,6 +43,7 @@ package group11.cse110.com.serviceforservice;
         import android.widget.Toast;
 
 
+
         /*
         import com.facebook.Request;
         import com.facebook.Response;
@@ -50,13 +51,15 @@ package group11.cse110.com.serviceforservice;
         import com.facebook.SessionState;
         import com.facebook.model.GraphUser;
         import com.parse.FindCallback;
+        */
+        import com.parse.FindCallback;
         import com.parse.Parse;
         import com.parse.ParseException;
         import com.parse.ParseFile;
         import com.parse.ParseObject;
         import com.parse.ParseQuery;
         import com.parse.SaveCallback;
-        */
+
 
 @TargetApi(Build.VERSION_CODES.CUPCAKE)
 @SuppressLint("NewApi")
@@ -76,7 +79,7 @@ public class SignUp extends Activity implements OnClickListener,
     Button galleryB;
     Button take;
     Button yes;
- //   ParseFile file;
+    ParseFile file;
     public static String key = "MySharedData";
 
     ProgressDialog progressDialog;
@@ -90,7 +93,7 @@ public class SignUp extends Activity implements OnClickListener,
     public static final int SELECT_PICTURE = 2;
     private static final int DIALOG_ALERT = 10;
     byte[] bytearray;
-  //  ParseQuery<ParseObject> query;
+    ParseQuery<ParseObject> query;
     Typeface type;
     EditText passTwo;
     TextWatcher textwatcher;
@@ -101,10 +104,10 @@ public class SignUp extends Activity implements OnClickListener,
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Log.e("Here","hereee");
-//        ParseObject.registerSubclass(Users.class);
+        Log.e("Here", "hereee");
+        ParseObject.registerSubclass(Users.class);
 
-//        Parse.initialize(this, "NiuPkTEZo0wn61fxUEPZyre3yAmHm1WNLKTKFfTp",
+ //       Parse.initialize(this, "NiuPkTEZo0wn61fxUEPZyre3yAmHm1WNLKTKFfTp",
  //               "acYSMbJ34seEJ95supo5ji4aIIFzz9PN0wOdHadb");
         type = Typeface.createFromAsset(getAssets(),"fonts/oswald.otf");
 
@@ -117,7 +120,7 @@ public class SignUp extends Activity implements OnClickListener,
         setActionBar();
         Log.e("Here2", "hereee");
 
-//        query = ParseQuery.getQuery("Users");
+        query = ParseQuery.getQuery("Users");
         passTwo = (EditText) findViewById(R.id.retypeET);
         name = (EditText) findViewById(R.id.nameET);
         username = (EditText) findViewById(R.id.usernameET);
@@ -291,7 +294,7 @@ public class SignUp extends Activity implements OnClickListener,
 
         name.addTextChangedListener(textWatcherTwo);
         user = new Users();
-/*
+
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Users");
         query.whereExists("objectId");
         query.findInBackground(new FindCallback<ParseObject>() {
@@ -299,7 +302,7 @@ public class SignUp extends Activity implements OnClickListener,
                 numPeople = scoreList.size();
             }
         });
-        */
+
 
         TextWatcher textWatcherThree = new TextWatcher() {
             int namec = 0;
@@ -557,7 +560,7 @@ public class SignUp extends Activity implements OnClickListener,
                     progressDialog.setCancelable(false);
 
                     progressDialog.show();
-                    /*
+
                    file = new ParseFile(username.getText().toString() + ".jpg", bytearray);
                     file.saveInBackground(new SaveCallback() {
 
@@ -613,7 +616,7 @@ public class SignUp extends Activity implements OnClickListener,
                             }
                         }
                     });
-                        */
+
                 }
             }
         }
@@ -751,7 +754,7 @@ public class SignUp extends Activity implements OnClickListener,
             Toast.makeText(this, "Password must be 6-20 characters", Toast.LENGTH_LONG).show();
         }
         if (arg0.getId() == R.id.usernameET && arg1 == false && username.getText().toString().length() >= 3){
-            /*
+
             ParseQuery<ParseObject> query = ParseQuery.getQuery("Users");
             query.whereEqualTo("username", username.getText().toString());
             query.findInBackground(new FindCallback<ParseObject>() {
@@ -764,12 +767,12 @@ public class SignUp extends Activity implements OnClickListener,
                     else
                         nameLong = true;
                 }
-            });*/
+            });
         }
 
         if (arg0.getId() == R.id.usernameET && arg1 == true
                 && username.getText().toString().length() >= 3) {
-            /*
+
             ParseQuery<ParseObject> query = ParseQuery.getQuery("Users");
             query.whereEqualTo("username", username.getText().toString());
             query.findInBackground(new FindCallback<ParseObject>() {
@@ -787,7 +790,7 @@ public class SignUp extends Activity implements OnClickListener,
                     else
                         nameLong = true;
                 }
-            });*/
+            });
         }
 
         if (arg0.getId() == R.id.retypeET && arg1 == false){

@@ -12,4 +12,6 @@
     <string name="exchange_for">" In exchange for:"</string>
     <string name="submit">Submit</string>
     <string name="title_activity_home_page">HomePage</string>
+    <string name="parse_app_id">ek0dYLxVt42aZKVglFxosP1OzhGnb9mwRPTm10Jo</string>
+    <string name="parse_client_key">ZAoJOf0Ku7mfuFhfNys916FcdVGPqITTKcBE9CVL</string>
 </resources>

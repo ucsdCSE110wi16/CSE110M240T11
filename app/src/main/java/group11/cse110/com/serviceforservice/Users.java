@@ -1,17 +1,17 @@
 package group11.cse110.com.serviceforservice;
 
 
-class Users{
+import com.parse.ParseFile;
+import com.parse.ParseObject;
 
-}
 /**
  * Created by Kim on 1/26/16.
  */
-/*
+
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
-import com.parse.ParseObject;*/
-/*
+import com.parse.ParseObject;
+
 @ParseClassName("Users")
 public class Users extends ParseObject{
     public Users() {
@@ -39,4 +39,4 @@ public class Users extends ParseObject{
         put("profilepic", file);
     }
 
-}*/
+}
