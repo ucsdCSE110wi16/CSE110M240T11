@@ -1,0 +1,67 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/sellPageTwo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="group11.cse110.com.serviceforservice.BlankFragment">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/addition_info"
+        android:id="@+id/additionalInfo"
+        android:textColor="@color/kale"
+        android:textStyle="bold"
+        android:layout_marginTop="20dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/textEditForAdditionalInfo"
+        android:layout_below="@id/additionalInfo"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:background="@color/lightGray"
+        android:text="For example, you can put the specifics on what you are selling here." />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/preferences"
+        android:textStyle="bold"
+        android:textColor="@color/kale"
+        android:id="@+id/preferences"
+        android:layout_below="@id/textEditForAdditionalInfo"
+        android:layout_marginTop="50dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/textEditForPrefs"
+        android:layout_below="@id/preferences"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@color/lightGray"
+        android:text="If there is any preferences in what you want to get in exchange, put it here."/>
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:text="@string/submit"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:id="@+id/submitButton"
+        android:layout_below="@id/textEditForPrefs"
+        android:layout_centerInParent="true"
+        android:background="@color/darkGreen"
+        android:layout_marginTop="100dp"/>
+
+
+</RelativeLayout>

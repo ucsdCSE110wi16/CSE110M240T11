@@ -10,6 +10,12 @@
     <string name="transportation">Transportation</string>
     <string name="language">Language Experience</string>
     <string name="exchange_for">" In exchange for:"</string>
-    <string name="submit">Submit</string>
+    <string name="next">Next</string>
     <string name="title_activity_home_page">HomePage</string>
+    <string name="addition_info">" Additional information:"</string>
+    <string name="preferences">" Preferences for exchange:"</string>
+    <string name="submit">Submit</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent" android:id="@+id/sell">
 
 
 
@@ -36,7 +36,8 @@
             <RadioGroup
                 android:layout_width="120dp"
                 android:layout_height="200dp"
-                android:layout_column="0">
+                android:layout_column="0"
+                android:id="@+id/radioGroup1">
 
                 <RadioButton
                     android:layout_width="100dp"
@@ -57,7 +58,8 @@
             <RadioGroup
                 android:layout_width="120dp"
                 android:layout_height="200dp"
-                android:layout_column="1">
+                android:layout_column="1"
+                android:id="@+id/radioGroup2">
 
                 <RadioButton
                     android:layout_width="100dp"
@@ -79,7 +81,8 @@
             <RadioGroup
                 android:layout_width="100dp"
                 android:layout_height="200dp"
-                android:layout_column="2">
+                android:layout_column="2"
+                android:id="@+id/radioGroup3">
 
                 <RadioButton
                     android:layout_width="100dp"
@@ -193,10 +196,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="35dp"
-        android:text="@string/submit"
+        android:text="@string/next"
         android:textColor="@color/white"
         android:textStyle="bold"
-        android:id="@+id/submitButton"
+        android:id="@+id/nextButton"
         android:layout_below="@id/exchange_options"
         android:layout_alignParentRight="true"
         android:background="@color/darkGreen"
