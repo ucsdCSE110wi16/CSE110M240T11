@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/sell_prompt"
+        android:textStyle="bold"
+        android:id="@+id/what_to_sell"
+        android:textColor="@color/kale"
+        android:layout_marginTop="2dp"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/what_to_sell"
+        android:layout_alignLeft="@id/what_to_sell"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:stretchColumns="150dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/sellOptions">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+
+            <RadioGroup
+                android:layout_width="120dp"
+                android:layout_height="200dp"
+                android:layout_column="0">
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/sellFood"
+                    android:text="@string/food"
+                    android:background="@drawable/foodicon" />
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/sellHousing"
+                    android:text="@string/housing"
+                    android:background="@drawable/housing"/>
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:layout_width="120dp"
+                android:layout_height="200dp"
+                android:layout_column="1">
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/sellEntertainment"
+                    android:text="@string/entertainment"
+                    android:background="@drawable/smile"/>
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/sellMoney"
+                    android:text="@string/money"
+                    android:background="@drawable/moneyicon"/>
+
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:layout_width="100dp"
+                android:layout_height="200dp"
+                android:layout_column="2">
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/sellLanguage"
+                    android:text="@string/language"
+                    android:background="@drawable/language"/>
+
+                <RadioButton
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/sellTransportation"
+                    android:text="@string/transportation"
+                    android:background="@drawable/transportation"/>
+
+            </RadioGroup>
+
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/exchange_for"
+        android:id="@+id/exchange"
+        android:layout_below="@id/sellOptions"
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:textColor="@color/kale"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@id/exchange"
+        android:layout_marginTop="0dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/exchange_options">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <CheckBox
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="@string/food"
+                android:id="@+id/foodCheck"
+                android:layout_column="0"
+                android:background="@drawable/foodicon"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp" />
+
+            <CheckBox
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="@string/entertainment"
+                android:id="@+id/entertainmentCheck"
+                android:layout_column="1"
+                android:background="@drawable/smile"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp" />
+
+            <CheckBox
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="@string/language"
+                android:id="@+id/langCheck"
+                android:layout_column="2"
+                android:background="@drawable/language"
+                android:layout_gravity="center"/>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <CheckBox
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="@string/housing"
+                android:id="@+id/housingCheck"
+                android:layout_column="0"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/housing"
+                android:layout_gravity="center"/>
+
+            <CheckBox
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="@string/money"
+                android:id="@+id/moneyCheck"
+                android:layout_column="1"
+                android:background="@drawable/moneyicon"
+                android:layout_gravity="center"
+                android:layout_marginRight="10dp" />
+
+            <CheckBox
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:text="@string/transportation"
+                android:id="@+id/transportationCheck"
+                android:layout_column="2"
+                android:background="@drawable/transportation"
+                android:layout_gravity="center"/>
+        </TableRow>
+    </TableLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:text="@string/submit"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:id="@+id/submitButton"
+        android:layout_below="@id/exchange_options"
+        android:layout_alignParentRight="true"
+        android:background="@color/darkGreen"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"/>
+</RelativeLayout>

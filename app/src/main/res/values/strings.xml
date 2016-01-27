@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Service for Service</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="sell_prompt">" I would like to sell:"</string>
+    <string name="food">Food</string>
+    <string name="housing">Housing</string>
+    <string name="money">Money</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="transportation">Transportation</string>
+    <string name="language">Language Experience</string>
+    <string name="exchange_for">" In exchange for:"</string>
+    <string name="submit">Submit</string>
+    <string name="title_activity_home_page">HomePage</string>
+</resources>

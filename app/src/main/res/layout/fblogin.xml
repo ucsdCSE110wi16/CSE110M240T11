@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/activityRoot2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" >
+
+    <ImageButton
+        android:id="@+id/ppic"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_above="@+id/nameET"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitXY"
+        android:src="@drawable/user" >
+    </ImageButton>
+
+    <EditText
+        android:id="@+id/nameET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:capitalize="words"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Full Name"
+        android:textSize="25sp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nameET"
+        android:layout_below="@+id/nameET"
+        android:id="@+id/scrollView">
+
+        <RelativeLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <EditText
+                android:id="@+id/emailET"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/retypeET"
+                android:ems="10"
+                android:hint="Email"
+                android:maxLength="50"
+                android:scrollHorizontally="true"
+                android:scrollbarSize="30dp"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/retypeET"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/passwordET"
+                android:ems="10"
+                android:hint="Retype Password"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:scrollHorizontally="true"
+                android:scrollbarSize="30dp"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/usernameET"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:ems="10"
+                android:hint="Username"
+                android:maxLength="15"
+                android:scrollHorizontally="true"
+                android:scrollbarSize="30dp"
+                android:singleLine="true" />
+
+            <EditText
+                android:id="@+id/passwordET"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/usernameET"
+                android:ems="10"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:maxLength="20"
+                android:scrollHorizontally="true"
+                android:scrollbarSize="30dp"
+                android:singleLine="true" />
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/button"
+        android:layout_below="@+id/scrollView"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>
