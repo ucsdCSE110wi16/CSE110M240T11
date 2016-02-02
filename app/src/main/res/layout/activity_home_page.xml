@@ -8,6 +8,10 @@
     android:fitsSystemWindows="true"
     tools:context="group11.cse110.com.serviceforservice.HomePage">
 
-
+    <android.support.v4.view.ViewPager
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </RelativeLayout>
