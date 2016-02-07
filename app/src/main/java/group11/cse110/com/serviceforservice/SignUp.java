@@ -404,42 +404,7 @@ public class SignUp extends Activity implements OnClickListener,
 
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (fb == true) {
-        /*    Session.getActiveSession().onActivityResult(this, requestCode,
-                    resultCode, data);*/
-        }
 
-        if (resultCode == RESULT_OK && requestCode == TAKEPHOTO) {
-            Uri imageUri = null;
-            imageUri = data.getData();
-            performCrop(imageUri);
-            dialogTwo.dismiss();
-
-        }
-
-        if (resultCode == RESULT_OK && requestCode == CROPPED) {
-            Bundle ex = data.getExtras();
-            bit = (Bitmap) ex.get("data");
-            picture.setImageBitmap(bit);
-            ByteArrayOutputStream outstream = new ByteArrayOutputStream();
-            bit.compress(Bitmap.CompressFormat.JPEG, 100, outstream);
-
-            // get byte array here
-            bytearray= outstream.toByteArray();
-            clickedImage = true;
-        }
-
-        if (resultCode == RESULT_OK && requestCode == SELECT_PICTURE) {
-
-            Uri selectedImageUri = data.getData();
-            performCrop(selectedImageUri);
-            dialogTwo.dismiss();
-
-        }
-    }
 
     public class FBTask extends AsyncTask<String, Void, Bitmap> {
         Bitmap mIcon1;
