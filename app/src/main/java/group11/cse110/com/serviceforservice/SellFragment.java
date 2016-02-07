@@ -36,7 +36,7 @@ public class SellFragment extends Fragment {
         final RadioButton sellLanguage = (RadioButton)group3.getChildAt(0);
         final RadioButton sellTransportation = (RadioButton)group3.getChildAt(1);
 
-        static int sellDecision = 0;
+        final int sellDecision = 0;
 
         sellFood.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,11 +128,21 @@ public class SellFragment extends Fragment {
         final CheckBox money = (CheckBox)rootView.findViewById(R.id.moneyCheck);
         final CheckBox language = (CheckBox)rootView.findViewById(R.id.langCheck);
         final CheckBox transportation = (CheckBox)rootView.findViewById(R.id.transportationCheck);
+        final int[] exchangeDecision = new int[6];
+
+        for(int i = 0; i < exchangeDecision.length; i++) {
+            exchangeDecision[i] = 0;
+        }
 
         food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (food.isChecked()) {
+                    exchangeDecision[0] = 1;
+                }
+                else if (!food.isChecked()) {
 
+                }
             }
         });
 
@@ -147,33 +157,27 @@ public class SellFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                }
             }
         });
 
-        money.s
+        money.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
         language.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(language.isChecked()) {
-                    language.setChecked(false);
-                }
-                else if (!language.isChecked()) {
-                    language.setChecked(true);
-                }
+
             }
         });
 
         transportation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(transportation.isChecked()) {
-                    transportation.setChecked(false);
-                }
-                else if (!transportation.isChecked()) {
-                    transportation.setChecked(true);
-                }
+
             }
         });
 
