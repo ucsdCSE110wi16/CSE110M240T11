@@ -5,7 +5,11 @@ package group11.cse110.com.serviceforservice;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 
 
@@ -13,6 +17,10 @@ import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
+import com.facebook.FacebookSdk;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 public class MainActivity extends Activity {
 
@@ -29,6 +37,7 @@ public class MainActivity extends Activity {
         ParseACL defaultACL = new ParseACL();
         defaultACL.setPublicReadAccess(true);
         ParseACL.setDefaultACL(defaultACL, true) ;
+        FacebookSdk.sdkInitialize(getApplicationContext());
 
         super.onCreate(savedInstanceState);
         SharedPreferences sp = getSharedPreferences(key,0);
@@ -39,7 +48,7 @@ public class MainActivity extends Activity {
         catch(Exception e){
 
         }
-        Log.e("HMM","okay");
+        Log.e("HMM", "okay");
 
 
 
