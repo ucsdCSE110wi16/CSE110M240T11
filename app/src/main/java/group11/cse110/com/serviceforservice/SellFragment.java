@@ -140,8 +140,8 @@ public class SellFragment extends Fragment {
                 if (food.isChecked()) {
                     exchangeDecision[0] = 1;
                 }
-                else if (!food.isChecked()) {
-
+                else {
+                    exchangeDecision[0] = 0;
                 }
             }
         });
@@ -149,35 +149,60 @@ public class SellFragment extends Fragment {
         housing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (housing.isChecked()) {
+                    exchangeDecision[1] = 1;
+                }
+                else {
+                    exchangeDecision[1] = 0;
+                }
             }
         });
 
         entertainment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (entertainment.isChecked()) {
+                    exchangeDecision[2] = 1;
+                }
+                else {
+                    exchangeDecision[2] = 0;
+                }
             }
         });
 
         money.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (money.isChecked()) {
+                    exchangeDecision[3] = 1;
+                }
+                else {
+                    exchangeDecision[3] = 0;
+                }
             }
         });
 
         language.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (language.isChecked()) {
+                    exchangeDecision[4] = 1;
+                }
+                else {
+                    exchangeDecision[4] = 0;
+                }
             }
         });
 
         transportation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (transportation.isChecked()) {
+                    exchangeDecision[5] = 1;
+                }
+                else {
+                    exchangeDecision[5] = 0;
+                }
             }
         });
 
