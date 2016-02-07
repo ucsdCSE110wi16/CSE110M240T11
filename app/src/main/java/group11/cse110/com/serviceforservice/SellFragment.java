@@ -198,10 +198,10 @@ public class SellFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (transportation.isChecked()) {
-                    exchangeDecision[0] = 1;
+                    exchangeDecision[5] = 1;
                 }
                 else {
-                    exchangeDecision[0] = 0;
+                    exchangeDecision[5] = 0;
                 }
             }
         });
