@@ -1,8 +1,7 @@
 package group11.cse110.com.serviceforservice;
 
-import android.support.v4.app.Fragment;
-import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -217,12 +216,12 @@ public class SellFragment extends Fragment {
                 //Not really sure what to do here, since we'd be getting our info from
                 //onActvityCreated right? Also, would I be putting twice?? Once for
                 //what to sell, and once for what they are willing to exchange for?
-                bundle.putInt("Sell Decision", sellDecision);
+                bundle.putInt("SellDecision", sellDecision);
                fragment.setArguments(bundle);
 
 
                 for (int i = 0; i < exchangeDecision.length; i++) {
-                    String label = "SellDecision " + i;
+                    String label = "SD" + i;
                     bundle.putInt(label, exchangeDecision[i]);
                 }
 

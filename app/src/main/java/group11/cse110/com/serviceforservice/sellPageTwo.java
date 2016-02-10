@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 
 /**
@@ -23,8 +22,18 @@ public class sellPageTwo extends Fragment {
 
 
         Bundle bundle = this.getArguments();
-        int defaultValue = 0;
-     //   int sellSelection = bundle.getInt(sell, defaultValue);
+        int sellSelection = bundle.getInt("SellDecision");
+
+        int buffer = 0;
+        int inputMax = 6;
+
+        for(int i = 0; i < inputMax; i++) {
+            String label = "SD" + i;
+            int sdSelection = bundle.getInt(label);
+            buffer = buffer | sdSelection;
+            buffer = buffer << 1;
+        }
+
 
         return rootView;
     }
