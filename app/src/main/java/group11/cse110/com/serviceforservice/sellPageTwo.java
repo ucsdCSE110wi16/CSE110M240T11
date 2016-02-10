@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 
 /**
@@ -15,7 +16,11 @@ public class sellPageTwo extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.buy, container, false);
+        System.out.println("sell Page Two");
+
+
+        View rootView = inflater.inflate(R.layout.sellpagetwo, container, false);
+
 
         Bundle bundle = this.getArguments();
         int defaultValue = 0;

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -21,12 +22,13 @@ public class SellFragment extends Fragment {
 
     static int sellDecision = 0;
     static int[] exchangeDecision = new int[6];
+    static View root;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sell, container, false);
-
+        root = rootView;
 
         Button next= (Button)rootView.findViewById(R.id.nextButton);
 
@@ -227,6 +229,8 @@ public class SellFragment extends Fragment {
                 fragment.setArguments(bundle);
                 android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                FrameLayout layout = (FrameLayout) root.findViewById(R.id.sell);
+                layout.removeAllViewsInLayout();
                 fragmentTransaction.replace(R.id.sell, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
