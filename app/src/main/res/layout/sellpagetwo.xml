@@ -18,38 +18,17 @@
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:inputType="textMultiLine"
+        android:gravity="top"
         android:ems="10"
         android:id="@+id/textEditForAdditionalInfo"
         android:layout_below="@id/additionalInfo"
         android:layout_marginRight="5dp"
         android:layout_marginLeft="5dp"
         android:background="@color/lightGray"
-        android:text="For example, you can put the specifics on what you are selling here." />
+        android:hint="For example, you can put the specifics on what you are selling here or preferences on what you would exchange for." />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/preferences"
-        android:textStyle="bold"
-        android:textColor="@color/kale"
-        android:id="@+id/preferences"
-        android:layout_below="@id/textEditForAdditionalInfo"
-        android:layout_marginTop="50dp"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/textEditForPrefs"
-        android:layout_below="@id/preferences"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:background="@color/lightGray"
-        android:text="If there is any preferences in what you want to get in exchange, put it here."/>
 
     <Button
         android:layout_width="200dp"
@@ -58,10 +37,10 @@
         android:textColor="@color/white"
         android:textStyle="bold"
         android:id="@+id/submitButton"
-        android:layout_below="@id/textEditForPrefs"
+        android:layout_below="@id/textEditForAdditionalInfo"
         android:layout_centerInParent="true"
         android:background="@color/darkGreen"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="60dp"/>
 
 
 </RelativeLayout>

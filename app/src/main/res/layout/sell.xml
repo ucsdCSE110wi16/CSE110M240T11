@@ -24,7 +24,7 @@
         android:layout_alignLeft="@id/what_to_sell"
         android:layout_marginTop="0dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="10dp"
         android:stretchColumns="150dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/sellOptions">

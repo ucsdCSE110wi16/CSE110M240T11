@@ -213,11 +213,8 @@ public class SellFragment extends Fragment {
             public void onClick(View v) {
                 Fragment fragment = new sellPageTwo();
                 Bundle bundle = new Bundle();
-                //Not really sure what to do here, since we'd be getting our info from
-                //onActvityCreated right? Also, would I be putting twice?? Once for
-                //what to sell, and once for what they are willing to exchange for?
                 bundle.putInt("SellDecision", sellDecision);
-               fragment.setArguments(bundle);
+                fragment.setArguments(bundle);
 
 
                 for (int i = 0; i < exchangeDecision.length; i++) {

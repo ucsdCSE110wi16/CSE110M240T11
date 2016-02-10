@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 
 /**
@@ -33,6 +34,15 @@ public class sellPageTwo extends Fragment {
             buffer = buffer | sdSelection;
             buffer = buffer << 1;
         }
+
+        Button submit= (Button)rootView.findViewById(R.id.submitButton);
+
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 
         return rootView;
