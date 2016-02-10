@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:paddingTop="20dp"
+                android:paddingBottom="20dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:layout_height="match_parent">
+
+
+
+    <TextView
+        android:id="@+id/name"
+        android:textSize="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:gravity="bottom|center_horizontal"
+        android:text="Shaun Ardiente"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/profilerow"
+        android:background="@drawable/user"
+        android:layout_below="@id/name"/>
+
+
+    <TextView
+        android:id="@+id/toplayer1"
+        android:layout_height="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_width="50dp"
+        android:text="Buying"
+        android:textSize="8dp"
+        android:gravity="center"
+        android:layout_toRightOf="@id/name"/>
+
+    <TextView
+        android:id="@+id/toplayer2"
+        android:layout_height="10dp"
+        android:text="In Exhange For"
+        android:textSize="8dp"
+        android:gravity="center"
+        android:layout_width="100dp"
+        android:layout_toRightOf="@id/toplayer1"/>
+
+    <TextView
+        android:id="@+id/toplayer3"
+        android:layout_height="10dp"
+        android:text="Description"
+        android:textSize="8dp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_toRightOf="@id/toplayer2"/>
+
+        <ImageView
+            android:layout_below="@id/toplayer1"
+            android:layout_toRightOf="@id/profilerow"
+            android:layout_alignLeft="@id/toplayer1"
+            android:layout_alignRight="@id/toplayer1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:id="@+id/buyrow"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/foodicon" />
+
+
+    <View
+        android:layout_width="1dp"
+        android:id="@+id/viewline"
+        android:layout_height="50dp"
+        android:layout_below="@id/toplayer1"
+        android:background="@color/darkGrey"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/buyrow"/>
+
+    <HorizontalScrollView
+        android:layout_width="150dp"
+        android:layout_below="@id/toplayer2"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/viewline"
+        android:layout_marginLeft="5dp"
+        android:layout_alignLeft="@id/toplayer2"
+        android:layout_alignRight="@id/toplayer2"
+        android:id="@+id/sellScroll">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:id="@+id/sellRow"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/moneyicon" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:layout_alignLeft="@id/toplayer3"
+        android:layout_alignRight="@id/toplayer3"
+        android:id="@+id/descriptionrow"
+        android:layout_height="50dp"
+        android:layout_below="@id/toplayer3"
+        android:textSize="8dp"
+        android:layout_marginLeft="5dp"
+        android:gravity="center"
+        android:text="I am selling this apartment in exchange for food like a KFC 3 piece chicken bucket"
+        android:layout_toRightOf="@id/sellScroll"/>
+
+
+
+
+
+</RelativeLayout>
