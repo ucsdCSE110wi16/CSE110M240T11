@@ -204,11 +204,6 @@
         android:layout_alignParentRight="true"
         android:background="@color/darkGreen"
         android:layout_marginTop="5dp"
-<<<<<<< HEAD
         android:layout_marginRight="10dp"/>
 </FrameLayout>
-=======
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="10dp"/>
-</RelativeLayout>
->>>>>>> dd250bee3069f451c87fe4cdd61a76d99cff702e
+
