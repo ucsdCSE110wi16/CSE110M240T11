@@ -1,6 +1,5 @@
 package group11.cse110.com.serviceforservice;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,25 +17,24 @@ public class SellFragment extends Fragment {
 
     //Keeps track of which radio button was selected
     static int sellCategory = 0;
+    static int sellDecision = 0;
+    static int[] exchangeDecision = new int[6];
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sell, container, false);
 
-
         Button next= (Button)rootView.findViewById(R.id.submitButton);
         RadioGroup group1 = (RadioGroup)rootView.findViewById(R.id.radioGroup1);
         RadioGroup group2 = (RadioGroup)rootView.findViewById(R.id.radioGroup2);
-        RadioGroup group3 = (RadioGroup)rootView.findViewById(R.id.radioGroup3);
+        RadioGroup group3 = (RadioGroup) rootView.findViewById(R.id.radioGroup3);
         final RadioButton sellFood = (RadioButton)group1.getChildAt(0);
         final RadioButton sellHousing = (RadioButton)group1.getChildAt(1);
         final RadioButton sellEntertainment = (RadioButton)group2.getChildAt(0);
         final RadioButton sellMoney = (RadioButton)group2.getChildAt(1);
         final RadioButton sellLanguage = (RadioButton)group3.getChildAt(0);
         final RadioButton sellTransportation = (RadioButton)group3.getChildAt(1);
-
-        final int sellDecision = 0;
 
         sellFood.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -128,7 +126,6 @@ public class SellFragment extends Fragment {
         final CheckBox money = (CheckBox)rootView.findViewById(R.id.moneyCheck);
         final CheckBox language = (CheckBox)rootView.findViewById(R.id.langCheck);
         final CheckBox transportation = (CheckBox)rootView.findViewById(R.id.transportationCheck);
-        final int[] exchangeDecision = new int[6];
 
         for(int i = 0; i < exchangeDecision.length; i++) {
             exchangeDecision[i] = 0;
@@ -210,14 +207,18 @@ public class SellFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Fragment fragment = new sellPageTwo();
-
                 Bundle bundle = new Bundle();
                 //Not really sure what to do here, since we'd be getting our info from
                 //onActvityCreated right? Also, would I be putting twice?? Once for
                 //what to sell, and once for what they are willing to exchange for?
                 bundle.putInt("Sell Decision", sellDecision);
-                fragment.setArguments(bundle);
 
+                for (int i = 0; i < exchangeDecision.length; i++) {
+                    String label = "SellDecision " + i;
+                    bundle.putInt(label, exchangeDecision[i]);
+                }
+
+                fragment.setArguments(bundle);
                 android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.sell, fragment);

@@ -19,7 +19,7 @@ public class sellPageTwo extends Fragment {
 
         Bundle bundle = this.getArguments();
         int defaultValue = 0;
-        int sellSelection = bundle.getInt(sell, defaultValue);
+       // int sellSelection = bundle.getInt(sell, defaultValue);
 
         return rootView;
     }
