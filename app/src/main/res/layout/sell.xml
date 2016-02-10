@@ -21,7 +21,7 @@
         android:layout_below="@id/what_to_sell"
         android:layout_alignLeft="@id/what_to_sell"
         android:layout_marginTop="0dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginRight="20dp"
         android:stretchColumns="150dp"
         android:layout_centerHorizontal="true"
@@ -119,8 +119,8 @@
         android:layout_height="200dp"
         android:layout_below="@id/exchange"
         android:layout_marginTop="0dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="0dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/exchange_options">
 
@@ -204,5 +204,6 @@
         android:layout_alignParentRight="true"
         android:background="@color/darkGreen"
         android:layout_marginTop="5dp"
-        android:layout_marginRight="10dp"/>
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"/>
 </RelativeLayout>
