@@ -7,9 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 
 import com.parse.ParseObject;
-import com.parse.ParseQuery;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +53,7 @@ public class sellPageTwo extends Fragment {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Fragment fragment = new BuyFragment();
                 ParseObject sellObject = new ParseObject("Selling");
                 sellObject.put("sellCategory", sellSelection);
                 sellObject.put("wantCategory", buffer);
@@ -63,6 +64,14 @@ public class sellPageTwo extends Fragment {
                 sellObject.put("description", description.getText().toString());
 
                 sellObject.saveInBackground();
+
+                android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                FrameLayout layout = (FrameLayout) rootView.findViewById(R.id.buy);
+                layout.removeAllViewsInLayout();
+                fragmentTransaction.replace(R.id.sell, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
 
             }
 
