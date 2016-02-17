@@ -69,7 +69,7 @@ public class sellPageTwo extends Fragment {
                 android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 FrameLayout layout = (FrameLayout) rootView.findViewById(R.id.buy);
                 layout.removeAllViewsInLayout();
-                fragmentTransaction.replace(R.id.sell, fragment);
+                fragmentTransaction.replace(R.id.sellPageTwo, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 
