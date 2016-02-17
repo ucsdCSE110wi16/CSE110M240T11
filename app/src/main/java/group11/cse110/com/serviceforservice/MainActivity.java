@@ -50,7 +50,8 @@ public class MainActivity extends Activity {
         }
         Log.e("HMM", "okay");
 
-
+        //testing purposes
+        user = "edward";
 
         if(user != null){
             Log.e("not null","not null");
