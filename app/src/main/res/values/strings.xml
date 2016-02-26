@@ -3,6 +3,7 @@
     <string name="action_settings">Settings</string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="sell_prompt">" I would like to sell:"</string>
+    <string name="buy_prompt">" I would like to buy:"</string>
     <string name="food">Food</string>
     <string name="housing">Housing</string>
     <string name="money">Money</string>
@@ -10,11 +11,14 @@
     <string name="transportation">Transportation</string>
     <string name="language">Language Experience</string>
     <string name="exchange_for">" In exchange for:"</string>
-    <string name="next">Next</string>
+    <string name="can_give">" For that service, I can provide:"</string>
+    <string name="cont">Continue</string>
     <string name="title_activity_home_page">HomePage</string>
     <string name="addition_info">" Additional information:"</string>
     <string name="preferences">" Preferences for exchange:"</string>
     <string name="submit">Submit</string>
+    <string name="buy_hint">"For example, you can put specifics on what you are willing to exchange for what you would like to buy."</string>
+    <string name="sell_hint">"For example, you can put the specifics on what you are selling here or preferences on what you would exchange for."</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:id="@+id/sell">
+    android:layout_height="match_parent" android:id="@+id/buyPageOne">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
-        android:layout_height="match_parent" android:id="@+id/sellId">
+        android:layout_height="match_parent" android:id="@+id/buyPageOneId">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/sell_prompt"
+            android:text="@string/buy_prompt"
             android:textStyle="bold"
-            android:id="@+id/what_to_sell"
+            android:id="@+id/what_to_buy"
             android:textColor="@color/kale"
             android:layout_marginTop="2dp"/>
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/what_to_sell"
-            android:layout_alignLeft="@id/what_to_sell"
+            android:layout_below="@id/what_to_buy"
+            android:layout_alignLeft="@id/what_to_buy"
             android:layout_marginTop="0dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_centerHorizontal="true"
-            android:id="@+id/sellOptions">
+            android:id="@+id/buyOptions">
 
 
             <TableRow
@@ -36,28 +36,28 @@
 
                 <RadioGroup
                     android:layout_width="wrap_content"
-                     android:layout_height="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_column="0"
-                    android:id="@+id/radioGroup1">
+                    android:id="@+id/buyRG1">
 
                     <RadioButton
                         android:layout_width="185dp"
                         android:layout_height="145dp"
-                        android:id="@+id/sellFood"
+                        android:id="@+id/buyFood"
                         android:text="@string/food"
                         android:background="@drawable/foodicon" />
 
                     <RadioButton
                         android:layout_width="185dp"
                         android:layout_height="145dp"
-                        android:id="@+id/sellLanguage"
+                        android:id="@+id/buyLanguage"
                         android:text="@string/language"
                         android:background="@drawable/language"/>
 
                     <RadioButton
                         android:layout_width="185dp"
                         android:layout_height="145dp"
-                        android:id="@+id/sellMoney"
+                        android:id="@+id/buyMoney"
                         android:text="@string/money"
                         android:background="@drawable/moneyicon"/>
 
@@ -67,26 +67,26 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
-                    android:id="@+id/radioGroup2">
+                    android:id="@+id/buyRG2">
 
                     <RadioButton
                         android:layout_width="185dp"
                         android:layout_height="145dp"
-                        android:id="@+id/sellEntertainment"
+                        android:id="@+id/buyEntertainment"
                         android:text="@string/entertainment"
                         android:background="@drawable/smile"/>
 
                     <RadioButton
                         android:layout_width="185dp"
                         android:layout_height="145dp"
-                        android:id="@+id/sellHousing"
+                        android:id="@+id/buyHousing"
                         android:text="@string/housing"
                         android:background="@drawable/housing"/>
 
                     <RadioButton
                         android:layout_width="185dp"
                         android:layout_height="145dp"
-                        android:id="@+id/sellTransportation"
+                        android:id="@+id/buyTransportation"
                         android:text="@string/transportation"
                         android:background="@drawable/transportation"/>
 
@@ -101,12 +101,11 @@
             android:text="@string/cont"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:id="@+id/cont1Button"
-            android:layout_below="@id/sellOptions"
+            android:id="@+id/cont1BuyForm"
+            android:layout_below="@id/buyOptions"
             android:layout_alignParentRight="true"
             android:background="@color/darkGreen"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"/>
     </RelativeLayout>
 </FrameLayout>
-

@@ -10,45 +10,45 @@ import android.widget.CheckBox;
 import android.widget.FrameLayout;
 
 /**
- * Created by jennifer on 2/23/16.
+ * Created by jennifer on 2/25/16.
  */
-public class sellPageTwo extends Fragment {
-    static int[] exchangeDecision = new int[6];
+public class buyPageTwo extends Fragment{
+    static int[] canGiveDecision = new int[6];
     static View root;
-    int sellDecision;
+    int buyDecision;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
-        System.out.println("sell Page Two");
+        System.out.println("buy Page two");
 
-        View rootView = inflater.inflate(R.layout.sellpagetwo, container, false);
+        View rootView = inflater.inflate(R.layout.buypagetwo, container, false);
         root = rootView;
 
         Bundle bundle = this.getArguments();
-        sellDecision = bundle.getInt("SellDecision");
+        buyDecision = bundle.getInt("BuyDecision");
 
-        Button cont2= (Button)rootView.findViewById(R.id.cont2Button);
+        Button cont2= (Button)rootView.findViewById(R.id.cont2BuyForm);
 
-        final CheckBox food = (CheckBox)rootView.findViewById(R.id.foodCheck);
-        final CheckBox housing = (CheckBox)rootView.findViewById(R.id.housingCheck);
-        final CheckBox entertainment = (CheckBox)rootView.findViewById(R.id.entertainmentCheck);
-        final CheckBox money = (CheckBox)rootView.findViewById(R.id.moneyCheck);
-        final CheckBox language = (CheckBox)rootView.findViewById(R.id.langCheck);
-        final CheckBox transportation = (CheckBox)rootView.findViewById(R.id.transportationCheck);
+        final CheckBox food = (CheckBox)rootView.findViewById(R.id.provideFood);
+        final CheckBox housing = (CheckBox)rootView.findViewById(R.id.provideHousing);
+        final CheckBox entertainment = (CheckBox)rootView.findViewById(R.id.provideEntertainment);
+        final CheckBox money = (CheckBox)rootView.findViewById(R.id.provideMoney);
+        final CheckBox language = (CheckBox)rootView.findViewById(R.id.provideLang);
+        final CheckBox transportation = (CheckBox)rootView.findViewById(R.id.provideTransportation);
 
-        for(int i = 0; i < exchangeDecision.length; i++) {
-            exchangeDecision[i] = 0;
+        for(int i = 0; i < canGiveDecision.length; i++) {
+            canGiveDecision[i] = 0;
         }
 
         food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (food.isChecked()) {
-                    exchangeDecision[0] = 1;
+                    canGiveDecision[0] = 1;
                 }
                 else {
-                    exchangeDecision[0] = 0;
+                    canGiveDecision[0] = 0;
                 }
             }
         });
@@ -57,10 +57,10 @@ public class sellPageTwo extends Fragment {
             @Override
             public void onClick(View v) {
                 if (language.isChecked()) {
-                    exchangeDecision[1] = 1;
+                    canGiveDecision[1] = 1;
                 }
                 else {
-                    exchangeDecision[1] = 0;
+                    canGiveDecision[1] = 0;
                 }
             }
         });
@@ -69,10 +69,10 @@ public class sellPageTwo extends Fragment {
             @Override
             public void onClick(View v) {
                 if (money.isChecked()) {
-                    exchangeDecision[2] = 1;
+                    canGiveDecision[2] = 1;
                 }
                 else {
-                    exchangeDecision[2] = 0;
+                    canGiveDecision[2] = 0;
                 }
             }
         });
@@ -81,10 +81,10 @@ public class sellPageTwo extends Fragment {
             @Override
             public void onClick(View v) {
                 if (entertainment.isChecked()) {
-                    exchangeDecision[3] = 1;
+                    canGiveDecision[3] = 1;
                 }
                 else {
-                    exchangeDecision[3] = 0;
+                    canGiveDecision[3] = 0;
                 }
             }
         });
@@ -93,10 +93,10 @@ public class sellPageTwo extends Fragment {
             @Override
             public void onClick(View v) {
                 if (housing.isChecked()) {
-                    exchangeDecision[4] = 1;
+                    canGiveDecision[4] = 1;
                 }
                 else {
-                    exchangeDecision[4] = 0;
+                    canGiveDecision[4] = 0;
                 }
             }
         });
@@ -105,10 +105,10 @@ public class sellPageTwo extends Fragment {
             @Override
             public void onClick(View v) {
                 if (transportation.isChecked()) {
-                    exchangeDecision[5] = 1;
+                    canGiveDecision[5] = 1;
                 }
                 else {
-                    exchangeDecision[5] = 0;
+                    canGiveDecision[5] = 0;
                 }
             }
         });
@@ -116,22 +116,22 @@ public class sellPageTwo extends Fragment {
         cont2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new sellPageThree();
+                Fragment fragment = new buyPageThree();
                 Bundle bundle = new Bundle();
-                bundle.putInt("SellDecision", sellDecision);
+                bundle.putInt("BuyDecision", buyDecision);
                 fragment.setArguments(bundle);
 
-                for (int i = 0; i < exchangeDecision.length; i++) {
-                    String label = "SD" + i;
-                    bundle.putInt(label, exchangeDecision[i]);
+                for (int i = 0; i < canGiveDecision.length; i++) {
+                    String label = "GIVE" + i;
+                    bundle.putInt(label, canGiveDecision[i]);
                 }
 
                 fragment.setArguments(bundle);
                 android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                 android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                FrameLayout layout = (FrameLayout) root.findViewById(R.id.sellPageTwo);
+                FrameLayout layout = (FrameLayout) root.findViewById(R.id.buyPageTwo);
                 layout.removeAllViewsInLayout();
-                fragmentTransaction.replace(R.id.sellPageTwo, fragment);
+                fragmentTransaction.replace(R.id.buyPageTwo, fragment);
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
 
