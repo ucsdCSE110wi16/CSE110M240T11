@@ -53,10 +53,10 @@ public class buyPageThree extends Fragment {
             public void onClick(View v) {
                 Fragment fragment = new BuyFragment();
                 ParseObject buyObject = new ParseObject("Buying");
-                buyObject.put("buyCategory", buySelection);
-                buyObject.put("giveCategory", buffer);
-                List<String> listSellers = new ArrayList<String>();
-                buyObject.add("listofsellers",listSellers);
+                buyObject.put("sellCategory", buySelection);
+                buyObject.put("wantCategory", buffer);
+                List<String> listBuyers = new ArrayList<String>();
+                buyObject.add("listofbuyers",listBuyers);
                 //ParseQuery<ParseObject> query = ParseQuery.getQuery("Selling");
 
                 buyObject.put("description", description.getText().toString());
