@@ -13,7 +13,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/can_give"
             android:id="@+id/can_give"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:textStyle="bold"
             android:textColor="@color/kale"/>
 
@@ -21,11 +21,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/can_give"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="0dp"
             android:layout_centerHorizontal="true"
-            android:id="@+id/canProvide_options">
+            android:id="@+id/canProvide_options"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
 
             <TableRow
                 android:layout_width="150dp"
@@ -38,7 +37,8 @@
                     android:text="@string/food"
                     android:id="@+id/provideFood"
                     android:layout_column="0"
-                    android:background="@drawable/foodicon"
+                    android:background="@drawable/food"
+                    android:gravity="top"
                     android:layout_gravity="center"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"/>
@@ -50,8 +50,9 @@
                     android:text="@string/entertainment"
                     android:id="@+id/provideEntertainment"
                     android:layout_column="1"
-                    android:background="@drawable/smile"
+                    android:background="@drawable/smileSquare"
                     android:layout_gravity="center"
+                    android:gravity="top"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp" />
 
@@ -68,8 +69,9 @@
                     android:text="@string/language"
                     android:id="@+id/provideLang"
                     android:layout_column="0"
-                    android:background="@drawable/language"
+                    android:background="@drawable/lang"
                     android:layout_gravity="center"
+                    android:gravity="top"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"/>
 
@@ -80,8 +82,9 @@
                     android:text="@string/housing"
                     android:id="@+id/provideHousing"
                     android:layout_column="1"
-                    android:background="@drawable/housing"
+                    android:background="@drawable/house"
                     android:layout_gravity="center"
+                    android:gravity="top"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"/>
 
@@ -98,8 +101,9 @@
                     android:text="@string/money"
                     android:id="@+id/provideMoney"
                     android:layout_column="0"
-                    android:background="@drawable/moneyicon"
+                    android:background="@drawable/money"
                     android:layout_gravity="center"
+                    android:gravity="top"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"/>
 
@@ -110,8 +114,9 @@
                     android:text="@string/transportation"
                     android:id="@+id/provideTransportation"
                     android:layout_column="1"
-                    android:background="@drawable/transportation"
+                    android:background="@drawable/transportation2"
                     android:layout_gravity="center"
+                    android:gravity="top"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"/>
             </TableRow>

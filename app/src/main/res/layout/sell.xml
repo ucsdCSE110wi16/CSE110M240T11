@@ -15,17 +15,17 @@
             android:textStyle="bold"
             android:id="@+id/what_to_sell"
             android:textColor="@color/kale"
-            android:layout_marginTop="2dp"/>
+            android:layout_marginTop="5dp"/>
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/what_to_sell"
             android:layout_alignLeft="@id/what_to_sell"
-            android:layout_marginTop="0dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
             android:id="@+id/sellOptions">
 
 
@@ -35,7 +35,7 @@
 
 
                 <RadioGroup
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                      android:layout_height="wrap_content"
                     android:layout_column="0"
                     android:id="@+id/radioGroup1">
@@ -45,26 +45,32 @@
                         android:layout_height="145dp"
                         android:id="@+id/sellFood"
                         android:text="@string/food"
-                        android:background="@drawable/foodicon" />
+                        android:gravity="top"
+                        android:layout_gravity="center"
+                        android:background="@drawable/food" />
 
                     <RadioButton
                         android:layout_width="185dp"
                         android:layout_height="145dp"
                         android:id="@+id/sellLanguage"
                         android:text="@string/language"
-                        android:background="@drawable/language"/>
+                        android:background="@drawable/lang"
+                        android:layout_gravity="center"
+                        android:gravity="top"/>
 
                     <RadioButton
                         android:layout_width="185dp"
                         android:layout_height="145dp"
                         android:id="@+id/sellMoney"
                         android:text="@string/money"
-                        android:background="@drawable/moneyicon"/>
+                        android:background="@drawable/money"
+                        android:layout_gravity="center"
+                        android:gravity="top"/>
 
                 </RadioGroup>
 
                 <RadioGroup
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
                     android:id="@+id/radioGroup2">
@@ -74,21 +80,27 @@
                         android:layout_height="145dp"
                         android:id="@+id/sellEntertainment"
                         android:text="@string/entertainment"
-                        android:background="@drawable/smile"/>
+                        android:background="@drawable/smileSquare"
+                        android:layout_gravity="center"
+                        android:gravity="top"/>
 
                     <RadioButton
                         android:layout_width="185dp"
                         android:layout_height="145dp"
                         android:id="@+id/sellHousing"
                         android:text="@string/housing"
-                        android:background="@drawable/housing"/>
+                        android:background="@drawable/house"
+                        android:layout_gravity="center"
+                        android:gravity="top"/>
 
                     <RadioButton
                         android:layout_width="185dp"
                         android:layout_height="145dp"
                         android:id="@+id/sellTransportation"
                         android:text="@string/transportation"
-                        android:background="@drawable/transportation"/>
+                        android:background="@drawable/transportation2"
+                        android:layout_gravity="center"
+                        android:gravity="top"/>
 
                 </RadioGroup>
 
