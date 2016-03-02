@@ -23,7 +23,7 @@ public class buyPageOne extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.buypageone, container, false);
-        DisplayMetrics displayMetrics = new DisplayMetrics();
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         int width = displayMetrics.widthPixels;
         int halfWidth = width/2;
 
@@ -40,18 +40,19 @@ public class buyPageOne extends Fragment{
         final RadioButton buyHousing = (RadioButton)group2.getChildAt(1);
         final RadioButton buyTransportation = (RadioButton)group2.getChildAt(2);
 
-        buyFood.setHeight(halfWidth);
-        buyFood.setWidth(halfWidth);
-        buyLanguage.setHeight(halfWidth);
-        buyLanguage.setWidth(halfWidth);
-        buyMoney.setHeight(halfWidth);
-        buyMoney.setWidth(halfWidth);
-        buyEntertainment.setHeight(halfWidth);
-        buyEntertainment.setWidth(halfWidth);
-        buyHousing.setHeight(halfWidth);
-        buyHousing.setWidth(halfWidth);
-        buyTransportation.setHeight(halfWidth);
-        buyTransportation.setWidth(halfWidth);
+        System.out.println("HALF WIDTH " + halfWidth);
+        buyFood.getLayoutParams().height = halfWidth;
+        buyFood.getLayoutParams().width = halfWidth;
+        buyLanguage.getLayoutParams().height = halfWidth;
+        buyLanguage.getLayoutParams().width = halfWidth;
+        buyMoney.getLayoutParams().height = halfWidth;
+        buyMoney.getLayoutParams().width = halfWidth;
+        buyEntertainment.getLayoutParams().height = halfWidth;
+        buyEntertainment.getLayoutParams().width = halfWidth;
+        buyHousing.getLayoutParams().height = halfWidth;
+        buyHousing.getLayoutParams().width = halfWidth;
+        buyTransportation.getLayoutParams().height = halfWidth;
+        buyTransportation.getLayoutParams().width = halfWidth;
 
         buyFood.setOnClickListener(new View.OnClickListener() {
             @Override

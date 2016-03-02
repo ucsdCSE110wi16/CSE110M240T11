@@ -40,18 +40,19 @@ public class SellFragment extends Fragment {
         final RadioButton sellHousing = (RadioButton)group2.getChildAt(1);
         final RadioButton sellTransportation = (RadioButton)group2.getChildAt(2);
 
-        sellFood.setHeight(halfWidth);
-        sellFood.setWidth(halfWidth);
-        sellLanguage.setHeight(halfWidth);
-        sellLanguage.setWidth(halfWidth);
-        sellMoney.setHeight(halfWidth);
-        sellMoney.setWidth(halfWidth);
-        sellEntertainment.setHeight(halfWidth);
-        sellEntertainment.setWidth(halfWidth);
-        sellHousing.setHeight(halfWidth);
-        sellHousing.setWidth(halfWidth);
-        sellTransportation.setHeight(halfWidth);
-        sellTransportation.setWidth(halfWidth);
+        System.out.println("HALF WIDTH " + halfWidth);
+        sellFood.getLayoutParams().height = halfWidth;
+        sellFood.getLayoutParams().width = halfWidth;
+        sellLanguage.getLayoutParams().height = halfWidth;
+        sellLanguage.getLayoutParams().width = halfWidth;
+        sellMoney.getLayoutParams().height = halfWidth;
+        sellMoney.getLayoutParams().width = halfWidth;
+        sellEntertainment.getLayoutParams().height = halfWidth;
+        sellEntertainment.getLayoutParams().width = halfWidth;
+        sellHousing.getLayoutParams().height = halfWidth;
+        sellHousing.getLayoutParams().width = halfWidth;
+        sellTransportation.getLayoutParams().height = halfWidth;
+        sellTransportation.getLayoutParams().width = halfWidth;
 
         sellFood.setOnClickListener(new View.OnClickListener() {
             @Override

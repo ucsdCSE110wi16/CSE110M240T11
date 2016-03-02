@@ -22,18 +22,13 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/can_give"
             android:layout_centerHorizontal="true"
-            android:id="@+id/canProvide_options"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            android:id="@+id/canProvide_options">
 
             <TableRow
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
                 <CheckBox
-                    android:layout_width="0dip"
-                    android:layout_weight="0.5"
-                    android:layout_height="145dp"
                     android:text="@string/food"
                     style="@style/IconLabel"
                     android:id="@+id/provideFood"
@@ -45,9 +40,6 @@
                     android:paddingRight="10dp"/>
 
                 <CheckBox
-                    android:layout_width="0dip"
-                    android:layout_weight="0.5"
-                    android:layout_height="145dp"
                     android:text="@string/entertainment"
                     style="@style/IconLabel"
                     android:id="@+id/provideEntertainment"
@@ -65,9 +57,6 @@
                 android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:layout_width="0dip"
-                    android:layout_weight="0.5"
-                    android:layout_height="145dp"
                     android:text="@string/language"
                     style="@style/IconLabel"
                     android:id="@+id/provideLang"
@@ -79,9 +68,6 @@
                     android:paddingRight="10dp"/>
 
                 <CheckBox
-                    android:layout_width="0dip"
-                    android:layout_weight="0.5"
-                    android:layout_height="145dp"
                     android:text="@string/housing"
                     style="@style/IconLabel"
                     android:id="@+id/provideHousing"
@@ -99,9 +85,6 @@
                 android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:layout_width="0dip"
-                    android:layout_weight="0.5"
-                    android:layout_height="145dp"
                     android:text="@string/money"
                     style="@style/IconLabel"
                     android:id="@+id/provideMoney"
@@ -113,9 +96,6 @@
                     android:paddingRight="10dp"/>
 
                 <CheckBox
-                    android:layout_width="0dip"
-                    android:layout_weight="0.5"
-                    android:layout_height="145dp"
                     android:text="@string/transportation"
                     style="@style/IconLabel"
                     android:id="@+id/provideTransportation"
