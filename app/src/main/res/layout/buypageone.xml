@@ -41,28 +41,25 @@
                     android:id="@+id/buyRG1">
 
                     <RadioButton
-                        android:layout_width="185dp"
-                        android:layout_height="145dp"
                         android:id="@+id/buyFood"
                         android:text="@string/food"
+                        style="@style/IconLabel"
                         android:gravity="top"
-                        android:background="@drawable/food" />
+                        android:background="@drawable/finalfood" />
 
                     <RadioButton
-                        android:layout_width="185dp"
-                        android:layout_height="145dp"
                         android:id="@+id/buyLanguage"
                         android:text="@string/language"
+                        style="@style/IconLabel"
                         android:gravity="top"
-                        android:background="@drawable/lang4"/>
+                        android:background="@drawable/finallang"/>
 
                     <RadioButton
-                        android:layout_width="185dp"
-                        android:layout_height="145dp"
                         android:id="@+id/buyMoney"
                         android:text="@string/money"
+                        style="@style/IconLabel"
                         android:gravity="top"
-                        android:background="@drawable/money"/>
+                        android:background="@drawable/finalmoney"/>
 
                 </RadioGroup>
 
@@ -73,28 +70,25 @@
                     android:id="@+id/buyRG2">
 
                     <RadioButton
-                        android:layout_width="185dp"
-                        android:layout_height="145dp"
                         android:id="@+id/buyEntertainment"
                         android:text="@string/entertainment"
+                        style="@style/IconLabel"
                         android:gravity="top"
-                        android:background="@drawable/fun"/>
+                        android:background="@drawable/finalentertainment"/>
 
                     <RadioButton
-                        android:layout_width="185dp"
-                        android:layout_height="145dp"
                         android:id="@+id/buyHousing"
                         android:text="@string/housing"
+                        style="@style/IconLabel"
                         android:gravity="top"
-                        android:background="@drawable/house"/>
+                        android:background="@drawable/finalhouse"/>
 
                     <RadioButton
-                        android:layout_width="185dp"
-                        android:layout_height="145dp"
                         android:id="@+id/buyTransportation"
                         android:text="@string/transportation"
+                        style="@style/IconLabel"
                         android:gravity="top"
-                        android:background="@drawable/transportation3Bigger"/>
+                        android:background="@drawable/finaltran"/>
 
                 </RadioGroup>
 

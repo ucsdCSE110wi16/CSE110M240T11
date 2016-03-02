@@ -2,6 +2,7 @@ package group11.cse110.com.serviceforservice;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,9 @@ public class SellFragment extends Fragment {
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sell, container, false);
         root = rootView;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        int width = displayMetrics.widthPixels;
+        int halfWidth = width/2;
 
         Button cont1= (Button)rootView.findViewById(R.id.cont1Button);
 
@@ -35,6 +39,19 @@ public class SellFragment extends Fragment {
         final RadioButton sellEntertainment = (RadioButton)group2.getChildAt(0);
         final RadioButton sellHousing = (RadioButton)group2.getChildAt(1);
         final RadioButton sellTransportation = (RadioButton)group2.getChildAt(2);
+
+        sellFood.setHeight(halfWidth);
+        sellFood.setWidth(halfWidth);
+        sellLanguage.setHeight(halfWidth);
+        sellLanguage.setWidth(halfWidth);
+        sellMoney.setHeight(halfWidth);
+        sellMoney.setWidth(halfWidth);
+        sellEntertainment.setHeight(halfWidth);
+        sellEntertainment.setWidth(halfWidth);
+        sellHousing.setHeight(halfWidth);
+        sellHousing.setWidth(halfWidth);
+        sellTransportation.setHeight(halfWidth);
+        sellTransportation.setWidth(halfWidth);
 
         sellFood.setOnClickListener(new View.OnClickListener() {
             @Override
