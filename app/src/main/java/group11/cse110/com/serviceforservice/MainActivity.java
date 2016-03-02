@@ -15,6 +15,7 @@ import android.util.Log;
 
 import com.parse.Parse;
 import com.parse.ParseACL;
+import com.parse.ParseFacebookUtils;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 import com.facebook.FacebookSdk;
@@ -30,7 +31,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState){
         // Enable Local Datastore.
         Parse.enableLocalDatastore(this) ;
-// Add your initialization code here Parse.initialize( this) ; ParseUser.enableAutomaticUser( ); ParseACL defaultACL = new ParseACL(); // Optionally enable public read access. // defaultACL.setPublicReadAccess﴾true﴿;
+    // Add your initialization code here
 
         Parse.initialize(this);
         ParseUser.enableAutomaticUser();
@@ -38,7 +39,7 @@ public class MainActivity extends Activity {
         defaultACL.setPublicReadAccess(true);
         ParseACL.setDefaultACL(defaultACL, true) ;
         FacebookSdk.sdkInitialize(getApplicationContext());
-
+        ParseFacebookUtils.initialize(this);
         super.onCreate(savedInstanceState);
         SharedPreferences sp = getSharedPreferences(key,0);
         try{
@@ -48,20 +49,17 @@ public class MainActivity extends Activity {
         catch(Exception e){
 
         }
-        Log.e("HMM", "okay");
 
-        //testing purposes
-        user = "edward";
-
-        if(user != null){
-            Log.e("not null","not null");
+        //ParseUser.logOutInBackground();
+        if(ParseUser.getCurrentUser() != null){
+            Log.d("start up","User" + " is login");
 
             homePage = new Intent(this,HomePage.class);
             startActivity(homePage);
             finish();
         }
         else{
-            Log.e("this is null","is null");
+            Log.e("start up","User is not login");
 
             homePage = new Intent(this,StartScreen.class);
             startActivity(homePage);
