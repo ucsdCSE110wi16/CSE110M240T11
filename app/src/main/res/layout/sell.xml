@@ -54,7 +54,7 @@
                         android:layout_height="145dp"
                         android:id="@+id/sellLanguage"
                         android:text="@string/language"
-                        android:background="@drawable/lang"
+                        android:background="@drawable/lang4"
                         android:layout_gravity="center"
                         android:gravity="top"/>
 
@@ -80,7 +80,7 @@
                         android:layout_height="145dp"
                         android:id="@+id/sellEntertainment"
                         android:text="@string/entertainment"
-                        android:background="@drawable/smileSquare"
+                        android:background="@drawable/fun"
                         android:layout_gravity="center"
                         android:gravity="top"/>
 
@@ -98,7 +98,7 @@
                         android:layout_height="145dp"
                         android:id="@+id/sellTransportation"
                         android:text="@string/transportation"
-                        android:background="@drawable/transportation2"
+                        android:background="@drawable/transportation3Bigger"
                         android:layout_gravity="center"
                         android:gravity="top"/>
 

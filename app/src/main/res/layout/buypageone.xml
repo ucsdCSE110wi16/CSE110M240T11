@@ -54,7 +54,7 @@
                         android:id="@+id/buyLanguage"
                         android:text="@string/language"
                         android:gravity="top"
-                        android:background="@drawable/lang"/>
+                        android:background="@drawable/lang4"/>
 
                     <RadioButton
                         android:layout_width="185dp"
@@ -78,7 +78,7 @@
                         android:id="@+id/buyEntertainment"
                         android:text="@string/entertainment"
                         android:gravity="top"
-                        android:background="@drawable/smileSquare"/>
+                        android:background="@drawable/fun"/>
 
                     <RadioButton
                         android:layout_width="185dp"
@@ -94,7 +94,7 @@
                         android:id="@+id/buyTransportation"
                         android:text="@string/transportation"
                         android:gravity="top"
-                        android:background="@drawable/transportation2"/>
+                        android:background="@drawable/transportation3Bigger"/>
 
                 </RadioGroup>
 
