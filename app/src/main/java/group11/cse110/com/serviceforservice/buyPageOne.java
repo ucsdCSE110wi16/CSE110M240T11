@@ -2,6 +2,7 @@ package group11.cse110.com.serviceforservice;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,10 @@ public class buyPageOne extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.buypageone, container, false);
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        int width = displayMetrics.widthPixels;
+        int halfWidth = width/2;
+
         root = rootView;
 
         Button cont1= (Button)rootView.findViewById(R.id.cont1BuyForm);
@@ -34,6 +39,20 @@ public class buyPageOne extends Fragment{
         final RadioButton buyEntertainment = (RadioButton)group2.getChildAt(0);
         final RadioButton buyHousing = (RadioButton)group2.getChildAt(1);
         final RadioButton buyTransportation = (RadioButton)group2.getChildAt(2);
+
+        System.out.println("HALF WIDTH " + halfWidth);
+        buyFood.getLayoutParams().height = halfWidth;
+        buyFood.getLayoutParams().width = halfWidth;
+        buyLanguage.getLayoutParams().height = halfWidth;
+        buyLanguage.getLayoutParams().width = halfWidth;
+        buyMoney.getLayoutParams().height = halfWidth;
+        buyMoney.getLayoutParams().width = halfWidth;
+        buyEntertainment.getLayoutParams().height = halfWidth;
+        buyEntertainment.getLayoutParams().width = halfWidth;
+        buyHousing.getLayoutParams().height = halfWidth;
+        buyHousing.getLayoutParams().width = halfWidth;
+        buyTransportation.getLayoutParams().height = halfWidth;
+        buyTransportation.getLayoutParams().width = halfWidth;
 
         buyFood.setOnClickListener(new View.OnClickListener() {
             @Override

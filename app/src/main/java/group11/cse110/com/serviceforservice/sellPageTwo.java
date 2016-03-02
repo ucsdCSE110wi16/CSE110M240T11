@@ -2,6 +2,7 @@ package group11.cse110.com.serviceforservice;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +26,10 @@ public class sellPageTwo extends Fragment {
         View rootView = inflater.inflate(R.layout.sellpagetwo, container, false);
         root = rootView;
 
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        int width = displayMetrics.widthPixels;
+        int halfWidth = width/2;
+
         Bundle bundle = this.getArguments();
         sellDecision = bundle.getInt("SellDecision");
 
@@ -36,6 +41,20 @@ public class sellPageTwo extends Fragment {
         final CheckBox money = (CheckBox)rootView.findViewById(R.id.moneyCheck);
         final CheckBox language = (CheckBox)rootView.findViewById(R.id.langCheck);
         final CheckBox transportation = (CheckBox)rootView.findViewById(R.id.transportationCheck);
+
+        System.out.println("HALF WIDTH " + halfWidth);
+        food.getLayoutParams().height = halfWidth;
+        food.getLayoutParams().width = halfWidth;
+        language.getLayoutParams().height = halfWidth;
+        language.getLayoutParams().width = halfWidth;
+        money.getLayoutParams().height = halfWidth;
+        money.getLayoutParams().width = halfWidth;
+        entertainment.getLayoutParams().height = halfWidth;
+        entertainment.getLayoutParams().width = halfWidth;
+        housing.getLayoutParams().height = halfWidth;
+        housing.getLayoutParams().width = halfWidth;
+        transportation.getLayoutParams().height = halfWidth;
+        transportation.getLayoutParams().width = halfWidth;
 
         for(int i = 0; i < exchangeDecision.length; i++) {
             exchangeDecision[i] = 0;

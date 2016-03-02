@@ -2,6 +2,7 @@ package group11.cse110.com.serviceforservice;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,9 @@ public class SellFragment extends Fragment {
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sell, container, false);
         root = rootView;
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        int width = displayMetrics.widthPixels;
+        int halfWidth = width/2;
 
         Button cont1= (Button)rootView.findViewById(R.id.cont1Button);
 
@@ -35,6 +39,20 @@ public class SellFragment extends Fragment {
         final RadioButton sellEntertainment = (RadioButton)group2.getChildAt(0);
         final RadioButton sellHousing = (RadioButton)group2.getChildAt(1);
         final RadioButton sellTransportation = (RadioButton)group2.getChildAt(2);
+
+        System.out.println("HALF WIDTH " + halfWidth);
+        sellFood.getLayoutParams().height = halfWidth;
+        sellFood.getLayoutParams().width = halfWidth;
+        sellLanguage.getLayoutParams().height = halfWidth;
+        sellLanguage.getLayoutParams().width = halfWidth;
+        sellMoney.getLayoutParams().height = halfWidth;
+        sellMoney.getLayoutParams().width = halfWidth;
+        sellEntertainment.getLayoutParams().height = halfWidth;
+        sellEntertainment.getLayoutParams().width = halfWidth;
+        sellHousing.getLayoutParams().height = halfWidth;
+        sellHousing.getLayoutParams().width = halfWidth;
+        sellTransportation.getLayoutParams().height = halfWidth;
+        sellTransportation.getLayoutParams().width = halfWidth;
 
         sellFood.setOnClickListener(new View.OnClickListener() {
             @Override

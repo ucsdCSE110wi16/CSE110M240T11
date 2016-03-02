@@ -13,7 +13,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/exchange_for"
             android:id="@+id/exchange"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:textStyle="bold"
             android:textColor="@color/kale"/>
 
@@ -21,37 +21,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/exchange"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="0dp"
             android:layout_centerHorizontal="true"
-            android:id="@+id/exchange_options">
+            android:id="@+id/exchange_options" >
 
             <TableRow
-                android:layout_width="150dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
 
                 <CheckBox
-                    android:layout_width="0dip"
-                    android:layout_weight="0.5"
-                    android:layout_height="145dp"
                     android:text="@string/food"
+                    style="@style/IconLabel"
                     android:id="@+id/foodCheck"
                     android:layout_column="0"
-                    android:background="@drawable/foodicon"
+                    android:background="@drawable/finalfood"
                     android:layout_gravity="center"
+                    android:gravity="top"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"/>
 
                 <CheckBox
-                    android:layout_width="0dip"
-                    android:layout_weight="0.5"
-                    android:layout_height="145dp"
                     android:text="@string/entertainment"
+                    style="@style/IconLabel"
                     android:id="@+id/entertainmentCheck"
                     android:layout_column="1"
-                    android:background="@drawable/smile"
+                    android:background="@drawable/finalentertainment"
                     android:layout_gravity="center"
+                    android:gravity="top"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp" />
 
@@ -62,25 +57,23 @@
                 android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:layout_width="0dip"
-                    android:layout_weight="0.5"
-                    android:layout_height="145dp"
                     android:text="@string/language"
+                    style="@style/IconLabel"
                     android:id="@+id/langCheck"
                     android:layout_column="0"
-                    android:background="@drawable/language"
+                    android:background="@drawable/finallang"
+                    android:gravity="top"
                     android:layout_gravity="center"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"/>
 
                 <CheckBox
-                    android:layout_width="0dip"
-                    android:layout_weight="0.5"
-                    android:layout_height="145dp"
                     android:text="@string/housing"
+                    style="@style/IconLabel"
                     android:id="@+id/housingCheck"
                     android:layout_column="1"
-                    android:background="@drawable/housing"
+                    android:background="@drawable/finalhouse"
+                    android:gravity="top"
                     android:layout_gravity="center"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"/>
@@ -92,26 +85,24 @@
                 android:layout_height="wrap_content">
 
                 <CheckBox
-                    android:layout_width="0dip"
-                    android:layout_weight="0.5"
-                    android:layout_height="145dp"
                     android:text="@string/money"
+                    style="@style/IconLabel"
                     android:id="@+id/moneyCheck"
                     android:layout_column="0"
-                    android:background="@drawable/moneyicon"
+                    android:background="@drawable/finalmoney"
                     android:layout_gravity="center"
+                    android:gravity="top"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"/>
 
                 <CheckBox
-                    android:layout_width="0dip"
-                    android:layout_weight="0.5"
-                    android:layout_height="145dp"
                     android:text="@string/transportation"
+                    style="@style/IconLabel"
                     android:id="@+id/transportationCheck"
                     android:layout_column="1"
-                    android:background="@drawable/transportation"
+                    android:background="@drawable/finaltran"
                     android:layout_gravity="center"
+                    android:gravity="top"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"/>
             </TableRow>
