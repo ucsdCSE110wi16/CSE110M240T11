@@ -25,7 +25,7 @@ public class SellFragment extends Fragment {
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.sell, container, false);
         root = rootView;
-        DisplayMetrics displayMetrics = new DisplayMetrics();
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         int width = displayMetrics.widthPixels;
         int halfWidth = width/2;
 
