@@ -50,8 +50,8 @@ public class MainActivity extends Activity {
 
         }
 
-        //ParseUser.logOutInBackground();
-        if(ParseUser.getCurrentUser() != null){
+
+        if(/*ParseUser.getCurrentUser()*/ null != null){
             Log.d("start up","User" + " is login");
 
             homePage = new Intent(this,HomePage.class);

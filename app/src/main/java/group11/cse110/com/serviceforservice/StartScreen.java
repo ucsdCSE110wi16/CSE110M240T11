@@ -175,7 +175,7 @@ public class StartScreen extends Activity implements OnClickListener {
                 parseUser.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
-                        Toast.makeText(StartScreen.this, "New user:" + name + " Signed up", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(StartScreen.this, "Welcome " + name, Toast.LENGTH_SHORT).show();
                     }
                 });
             }
