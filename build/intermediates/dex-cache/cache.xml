@@ -1,2 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
+
+    <item
+        jar="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\pre-dexed\debug\de.hdodenhof-circleimageview-1.3.0_fd806dca24d2da8a88234b3b4da7f11df4a87dd7.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jason\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1_070080a002c1c4feb5ec27c551d032035ba16fdc.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.1_e2a63ac2e9caed9ac3e09be21e3fdfb555609c9e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.1.1_686ac3b7d0ed1e2a192133c1853a8d4897c86964.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\23.0.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="39ae02ce40c3ac828abbf780ce0ff5d7a28b7d6a">
+        <dex dex="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\pre-dexed\debug\com.android.support-cardview-v7-23.0.1_5da05052d13569cd7a3d9aab1836baaec405068e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jason\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-applinks\1.4.0\8ad21bf21784dacce5f2043afb97218cc377e835\bolts-applinks-1.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8ad21bf21784dacce5f2043afb97218cc377e835">
+        <dex dex="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\pre-dexed\debug\bolts-applinks-1.4.0_06fc3aa871208ebaaf5d3a385dd80649e5827cb0.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.1.1_1b238cb0e56a4438262bd19dc97a68983148c713.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1_e931bfccf6a02a38734febd44720019ddd3364ea.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\exploded-aar\com.facebook.android\facebook-android-sdk\4.6.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="1c1afa0ab2a8197a5da1b36c4167a9e479cb74d9">
+        <dex dex="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\pre-dexed\debug\com.facebook.android-facebook-android-sdk-4.6.0_a338de50ce6d9ea9870af21aeb050298d0ebb60e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jason\.gradle\caches\modules-2\files-2.1\com.parse.bolts\bolts-tasks\1.4.0\d85884acf6810a3bbbecb587f239005cbc846dc4\bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\pre-dexed\debug\bolts-tasks-1.4.0_1bb1899a71dc8a327a094c00bfc5035bb9785227.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jason\.gradle\caches\modules-2\files-2.1\com.parse\parse-android\1.13.0\58a7d54b6a4f28be11f0cecec93097eddf473e6f\parse-android-1.13.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="58a7d54b6a4f28be11f0cecec93097eddf473e6f">
+        <dex dex="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\pre-dexed\debug\parse-android-1.13.0_2f51babf5427dbf2e45e917a5a798ab2a83439e3.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="C:\Users\Jason\Desktop\tempProj\CSE110M240T11\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.1_2380ba23b86547161762191e43e98acd9d5a4a0d.jar" />
+    </item>
+
+</items>
