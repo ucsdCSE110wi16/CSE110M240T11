@@ -33,6 +33,8 @@ public class sellPageThree extends Fragment {
         rootView = inflater.inflate(R.layout.sellpagethree, container, false);
         description = (EditText) sellPageThree.this.rootView.findViewById(R.id.textEditForAdditionalInfo) ;
 
+        android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
+        actionBar.setTitle("Sell Form");
 
         Bundle bundle = this.getArguments();
         sellSelection = bundle.getInt("SellDecision");

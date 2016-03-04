@@ -30,6 +30,9 @@ public class buyPageTwo extends Fragment{
         int width = displayMetrics.widthPixels;
         int halfWidth = width/2;
 
+        android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
+        actionBar.setTitle("Buy Form");
+
         Bundle bundle = this.getArguments();
         buyDecision = bundle.getInt("BuyDecision");
 

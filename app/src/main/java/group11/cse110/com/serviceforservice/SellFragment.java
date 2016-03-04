@@ -29,6 +29,9 @@ public class SellFragment extends Fragment {
         int width = displayMetrics.widthPixels;
         int halfWidth = width/2;
 
+        android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
+        actionBar.setTitle("Sell Form");
+
         Button cont1= (Button)rootView.findViewById(R.id.cont1Button);
 
         RadioGroup group1 = (RadioGroup)rootView.findViewById(R.id.radioGroup1);

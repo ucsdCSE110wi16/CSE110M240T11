@@ -32,6 +32,8 @@ public class buyPageThree extends Fragment {
         rootView = inflater.inflate(R.layout.buypagethree, container, false);
         description = (EditText) buyPageThree.this.rootView.findViewById(R.id.additionalInfoForBuy) ;
 
+        android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
+        actionBar.setTitle("Buy Form");
 
         Bundle bundle = this.getArguments();
         buySelection = bundle.getInt("BuyDecision");

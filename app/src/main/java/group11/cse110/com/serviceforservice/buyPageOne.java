@@ -27,6 +27,9 @@ public class buyPageOne extends Fragment{
         int width = displayMetrics.widthPixels;
         int halfWidth = width/2;
 
+        android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
+        actionBar.setTitle("Buy Form");
+
         root = rootView;
 
         Button cont1= (Button)rootView.findViewById(R.id.cont1BuyForm);

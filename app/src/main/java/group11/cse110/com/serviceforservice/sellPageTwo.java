@@ -26,6 +26,9 @@ public class sellPageTwo extends Fragment {
         View rootView = inflater.inflate(R.layout.sellpagetwo, container, false);
         root = rootView;
 
+        android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
+        actionBar.setTitle("Sell Form");
+
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         int width = displayMetrics.widthPixels;
         int halfWidth = width/2;

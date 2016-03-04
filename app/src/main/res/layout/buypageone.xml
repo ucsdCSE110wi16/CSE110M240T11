@@ -3,6 +3,11 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent" android:id="@+id/buyPageOne">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical" android:layout_width="match_parent"
         android:layout_height="match_parent" android:id="@+id/buyPageOneId">
@@ -22,10 +27,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/what_to_buy"
             android:layout_alignLeft="@id/what_to_buy"
-            android:layout_marginTop="0dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:layout_centerHorizontal="true"
+            android:layout_centerInParent="true"
             android:id="@+id/buyOptions">
 
 
@@ -108,4 +111,5 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"/>
     </RelativeLayout>
+    </ScrollView>
 </FrameLayout>
