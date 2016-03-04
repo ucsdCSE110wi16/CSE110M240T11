@@ -19,6 +19,8 @@
     <string name="submit">Submit</string>
     <string name="buy_hint">"For example, you can put specifics on what you are willing to exchange for what you would like to buy."</string>
     <string name="sell_hint">"For example, you can put the specifics on what you are selling here or preferences on what you would exchange for."</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
