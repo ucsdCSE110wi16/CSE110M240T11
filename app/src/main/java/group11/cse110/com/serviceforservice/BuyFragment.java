@@ -1,39 +1,21 @@
 package group11.cse110.com.serviceforservice;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
-import android.support.v4.app.Fragment;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
-import android.widget.ArrayAdapter;
-import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ScrollView;
-import android.widget.TextView;
-import com.parse.FindCallback;
-import com.parse.ParseException;
+
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.net.URL;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class BuyFragment extends Fragment implements AbsListView.OnScrollListener{
     SharedPreferences sp;
@@ -59,6 +41,12 @@ public class BuyFragment extends Fragment implements AbsListView.OnScrollListene
         View rootView = inflater.inflate(R.layout.buy, container, false);
         lv = (ListView) rootView.findViewById(R.id.listview);
         lv.setOnScrollListener(this);
+
+        android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
+        //actionBar.setTitle("Sell Form");
+        actionBar.setTitle(Html.fromHtml("<font color=@colors/white>SELL FEED</font>"));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.DKGRAY));
+
         username = new ArrayList<String>();
         descriptions = new ArrayList<String>();
         imageUrls = new ArrayList<String>();

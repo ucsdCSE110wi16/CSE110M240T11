@@ -84,12 +84,11 @@ public class HomePage extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_buy) {
+        } else if (id == R.id.nav_sell) {
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, buyFragment);
             fragmentTransaction.commit();
-        } else if (id == R.id.nav_sell) {
-
         } else if (id == R.id.nav_post_sell) {
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();

@@ -1,7 +1,10 @@
 package group11.cse110.com.serviceforservice;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +26,7 @@ public class sellPageThree extends Fragment {
     View rootView;
     EditText description;
     int sellSelection;
+    boolean sold;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -34,13 +38,16 @@ public class sellPageThree extends Fragment {
         description = (EditText) sellPageThree.this.rootView.findViewById(R.id.textEditForAdditionalInfo) ;
 
         android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
-        actionBar.setTitle("Sell Form");
+        //actionBar.setTitle("Sell Form");
+        actionBar.setTitle(Html.fromHtml("<font color=@colors/white>Sell Form</font>"));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.DKGRAY));
 
         Bundle bundle = this.getArguments();
         sellSelection = bundle.getInt("SellDecision");
 
 
         int inputMax = 6;
+        sold = false;
 
         for(int i = 0; i < inputMax; i++) {
             String label = "SD" + i;
@@ -58,6 +65,7 @@ public class sellPageThree extends Fragment {
                 ParseObject sellObject = new ParseObject("Selling");
                 sellObject.put("sellCategory", sellSelection);
                 sellObject.put("wantCategory", buffer);
+                sellObject.put("sold", sold);
                 List<String> listBuyers = new ArrayList<String>();
                 sellObject.add("listofbuyers",listBuyers);
                 //ParseQuery<ParseObject> query = ParseQuery.getQuery("Selling");
