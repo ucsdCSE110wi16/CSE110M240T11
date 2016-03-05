@@ -1,5 +1,6 @@
 package group11.cse110.com.serviceforservice;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -26,6 +27,8 @@ public class buyPageThree extends Fragment {
     EditText description;
     int buySelection;
     boolean bought;
+    String username;
+    private static final String key = "MySharedData";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,7 +40,6 @@ public class buyPageThree extends Fragment {
         description = (EditText) buyPageThree.this.rootView.findViewById(R.id.additionalInfoForBuy) ;
 
         android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
-        //actionBar.setTitle("Buy Form");
         actionBar.setTitle(Html.fromHtml("<font color=@colors/white>Buy Form</font>"));
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.DKGRAY));
 
@@ -54,6 +56,9 @@ public class buyPageThree extends Fragment {
             buffer = buffer | buySelection;
         }
 
+        SharedPreferences sp = getActivity().getSharedPreferences(key, 0);
+        username = sp.getString("username",null);
+
         Button submit= (Button)rootView.findViewById(R.id.buySubmitButton);
 
         submit.setOnClickListener(new View.OnClickListener() {
@@ -64,6 +69,7 @@ public class buyPageThree extends Fragment {
                 buyObject.put("sellCategory", buySelection);
                 buyObject.put("wantCategory", buffer);
                 buyObject.put("bought", bought);
+                buyObject.put("username",username);
                 List<String> listBuyers = new ArrayList<String>();
                 buyObject.add("listofbuyers",listBuyers);
                 //ParseQuery<ParseObject> query = ParseQuery.getQuery("Selling");

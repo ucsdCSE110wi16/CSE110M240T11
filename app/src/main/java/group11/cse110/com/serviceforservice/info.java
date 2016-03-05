@@ -4,14 +4,12 @@ import android.app.Fragment;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -49,14 +47,14 @@ public class info extends Fragment {
 
         /*initializing selling, tel and email */
         TextView selling = (TextView) root.findViewById(R.id.Selling);
-        TextView tel = (TextView) root.findViewById(R.id.Tel);
+        TextView tel = (TextView) root.findViewById(R.id.tel);
         TextView email = (TextView) root.findViewById(R.id.email);
 
         /* initializing the listView */
         ListView listView = (ListView) root.findViewById(R.id.listView);
 
         /* initializing the description */
-        TextView description = (TextView) root.findViewById(R.id.descriptionContent);
+        TextView description = (TextView) root.findViewById(R.id.descriptionHere);
 
         /* set the profile pic from facebook, and put the user, email on the imageView */
         profilePic.setImageBitmap(getUserDetailsFromParse());

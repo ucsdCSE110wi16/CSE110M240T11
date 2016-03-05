@@ -1,5 +1,8 @@
 package group11.cse110.com.serviceforservice;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -22,20 +25,33 @@ import java.util.List;
  * Created by Phung on 1/18/16.
  */
 public class sellPageThree extends Fragment {
-    static int buffer = 0;
+    static int buffer;
     View rootView;
     EditText description;
     int sellSelection;
     boolean sold;
+    boolean descriptionCheck;
+    String str;
+    String username;
+    private static final String key = "MySharedData";
+
+    private boolean checkEmpty(String str) {
+        if (str.length() > 0) {
+            return true;
+        }
+
+        return false;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        buffer = 0;
         System.out.println("sell Page Three");
 
 
         rootView = inflater.inflate(R.layout.sellpagethree, container, false);
-        description = (EditText) sellPageThree.this.rootView.findViewById(R.id.textEditForAdditionalInfo) ;
+        description = (EditText) sellPageThree.this.rootView.findViewById(R.id.textEditForAdditionalInfo);
 
         android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
         //actionBar.setTitle("Sell Form");
@@ -54,34 +70,55 @@ public class sellPageThree extends Fragment {
             buffer = buffer << 1;
             int sdSelection = bundle.getInt(label);
             buffer = buffer | sdSelection;
+            System.out.println("BUFFER " + buffer);
         }
 
+        SharedPreferences sp = getActivity().getSharedPreferences(key, 0);
+        username = sp.getString("username",null);
+
         Button submit= (Button)rootView.findViewById(R.id.submitButton);
+
+        final AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+        alertDialog.setTitle("Oh no!");
+        alertDialog.setMessage("Please enter a description with the specifics for your post.");
+        alertDialog.setButton("Ok!", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
+            }
+        });
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new BuyFragment();
-                ParseObject sellObject = new ParseObject("Selling");
-                sellObject.put("sellCategory", sellSelection);
-                sellObject.put("wantCategory", buffer);
-                sellObject.put("sold", sold);
-                List<String> listBuyers = new ArrayList<String>();
-                sellObject.add("listofbuyers",listBuyers);
-                //ParseQuery<ParseObject> query = ParseQuery.getQuery("Selling");
+                str = description.getText().toString();
+                descriptionCheck = checkEmpty(str);
+                if (descriptionCheck) {
+                    Fragment fragment = new BuyFragment();
+                    ParseObject sellObject = new ParseObject("Selling");
+                    sellObject.put("sellCategory", sellSelection);
+                    sellObject.put("wantCategory", buffer);
+                    sellObject.put("sold", sold);
+                    sellObject.put("username",username);
+                    List<String> listBuyers = new ArrayList<String>();
+                    sellObject.add("listofbuyers", listBuyers);
+                    //ParseQuery<ParseObject> query = ParseQuery.getQuery("Selling");
 
-                sellObject.put("description", description.getText().toString());
+                    sellObject.put("description", description.getText().toString());
 
-                sellObject.saveInBackground();
+                    sellObject.saveInBackground();
 
-                android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                FrameLayout layout = (FrameLayout) rootView.findViewById(R.id.sellPageThree);
-                layout.removeAllViewsInLayout();
-                fragmentTransaction.replace(R.id.sellPageThree, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-
+                    android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    FrameLayout layout = (FrameLayout) rootView.findViewById(R.id.sellPageThree);
+                    layout.removeAllViewsInLayout();
+                    fragmentTransaction.replace(R.id.sellPageThree, fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
+                else {
+                    alertDialog.show();
+                }
             }
 
         });

@@ -16,8 +16,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/can_give"
+            android:text="@string/exchange_for"
             android:id="@+id/can_give"
+            android:typeface="monospace"
             android:layout_marginTop="5dp"
             android:textStyle="bold"
             android:textColor="@color/kale"/>
@@ -116,16 +117,18 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="28dp"
             android:text="@string/cont"
             android:textColor="@color/white"
             android:textStyle="bold"
+            android:typeface="monospace"
             android:id="@+id/cont2BuyForm"
-            android:layout_below="@id/canProvide_options"
             android:layout_alignParentRight="true"
             android:background="@color/darkGreen"
+            android:layout_marginRight="2dp"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginBottom="2dp"
+            android:layout_above="@id/canProvide_options"/>
 
     </RelativeLayout>
 

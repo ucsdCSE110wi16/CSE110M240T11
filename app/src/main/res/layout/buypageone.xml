@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/buy_prompt"
+            android:typeface="monospace"
             android:textStyle="bold"
             android:id="@+id/what_to_buy"
             android:textColor="@color/kale"
@@ -100,16 +101,18 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="28dp"
             android:text="@string/cont"
             android:textColor="@color/white"
             android:textStyle="bold"
+            android:typeface="monospace"
             android:id="@+id/cont1BuyForm"
-            android:layout_below="@id/buyOptions"
             android:layout_alignParentRight="true"
             android:background="@color/darkGreen"
+            android:layout_marginRight="2dp"
             android:layout_marginTop="5dp"
-            android:layout_marginRight="10dp"/>
+            android:layout_marginBottom="2dp"
+            android:layout_above="@id/buyOptions"/>
     </RelativeLayout>
     </ScrollView>
 </FrameLayout>
