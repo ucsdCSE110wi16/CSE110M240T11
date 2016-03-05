@@ -1,7 +1,10 @@
 package group11.cse110.com.serviceforservice;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,7 +34,9 @@ public class buyPageTwo extends Fragment{
         int halfWidth = width/2;
 
         android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
-        actionBar.setTitle("Buy Form");
+        //actionBar.setTitle("Buy Form");
+        actionBar.setTitle(Html.fromHtml("<font color=@colors/white>Buy Form</font>"));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.DKGRAY));
 
         Bundle bundle = this.getArguments();
         buyDecision = bundle.getInt("BuyDecision");

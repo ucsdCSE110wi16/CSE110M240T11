@@ -1,7 +1,10 @@
 package group11.cse110.com.serviceforservice;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +25,7 @@ public class buyPageThree extends Fragment {
     View rootView;
     EditText description;
     int buySelection;
+    boolean bought;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,12 +37,14 @@ public class buyPageThree extends Fragment {
         description = (EditText) buyPageThree.this.rootView.findViewById(R.id.additionalInfoForBuy) ;
 
         android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
-        actionBar.setTitle("Buy Form");
+        //actionBar.setTitle("Buy Form");
+        actionBar.setTitle(Html.fromHtml("<font color=@colors/white>Buy Form</font>"));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.DKGRAY));
 
         Bundle bundle = this.getArguments();
         buySelection = bundle.getInt("BuyDecision");
 
-
+        bought = false;
         int inputMax = 6;
 
         for(int i = 0; i < inputMax; i++) {
@@ -57,6 +63,7 @@ public class buyPageThree extends Fragment {
                 ParseObject buyObject = new ParseObject("Buying");
                 buyObject.put("sellCategory", buySelection);
                 buyObject.put("wantCategory", buffer);
+                buyObject.put("bought", bought);
                 List<String> listBuyers = new ArrayList<String>();
                 buyObject.add("listofbuyers",listBuyers);
                 //ParseQuery<ParseObject> query = ParseQuery.getQuery("Selling");
