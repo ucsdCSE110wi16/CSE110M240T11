@@ -3,6 +3,7 @@ package group11.cse110.com.serviceforservice;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -64,6 +65,9 @@ public class StartScreen extends Activity implements OnClickListener {
     private ProfileTracker mProfileTracker;
     String email, name;
     ParseUser parseUser;
+    public static String key = "MySharedData";
+
+    ParseObject user;
     Bitmap bitmap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,9 +79,13 @@ public class StartScreen extends Activity implements OnClickListener {
         fb = (LoginButton) findViewById(R.id.signfacebook);
         sign.setOnClickListener(this);
         callbackManager = CallbackManager.Factory.create();
+
+
+
         fb.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
+
                 StartScreen.this.fbSignIn();
             }
 
@@ -159,8 +167,21 @@ public class StartScreen extends Activity implements OnClickListener {
     }
     private void saveNewUser() {
         parseUser = ParseUser.getCurrentUser();
+        user = new ParseObject("Users");
         parseUser.setUsername(name);
         parseUser.setEmail(email);
+        user.put("name",name);
+        user.put("email", email);
+        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> bookmark = new ArrayList<String>();
+        user.put("bookmarks",bookmark);
+        user.put("myPosts",list);
+        user.put("username",name);
+        SharedPreferences sp = getSharedPreferences(key, 0);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putString("username", name);
+        edit.commit();
+
 //        Saving profile photo as a ParseFile
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);
@@ -170,6 +191,14 @@ public class StartScreen extends Activity implements OnClickListener {
         parseFile.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
+                user.put("profilepic",parseFile);
+                user.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        user.put("profileurl", user.getParseFile("profilepic").getUrl());
+                        user.saveInBackground();
+                    }
+                });
                 parseUser.put("profileThumb", parseFile);
                 //Finally save all the user details
                 parseUser.saveInBackground(new SaveCallback() {

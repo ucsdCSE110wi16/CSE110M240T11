@@ -53,13 +53,24 @@ public class ParseQueryFeed {
 
     public void queryMethod(final boolean first){
         query.orderByDescending("updatedAt");
+        if(query == null){
+            System.out.println("QUERY IS NULL");
+        }
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> parseObjectList, ParseException e) {
                 for(ParseObject o : parseObjectList){
+                    if(o == null){
+                        System.out.println("IS NULL");
+                    }
                     System.out.println("USERNAME " + o.getString("username"));
                     username.add(o.getString("username"));
+                    System.out.println("t1");
                     descriptions.add(o.getString("description"));
+                    System.out.println("t2");
+
                     sellCategory.add(o.getInt("sellCategory"));
+                    System.out.println("t3");
+
                     wantCategory.add(o.getInt("wantCategory"));
                 }
                 uQ = new ArrayList();
@@ -93,6 +104,13 @@ public class ParseQueryFeed {
 
         @Override
         protected String doInBackground(String... params) {
+            long l = 1500;
+            try {
+                Thread.sleep(l);
+            }
+            catch(Exception e){
+
+            }
             query.setLimit(10);
             queryMethod(true);
             return null;
