@@ -130,6 +130,7 @@ public class StartScreen extends Activity implements OnClickListener {
     public void fbSignIn(){
         Intent homepageIntent = new Intent(this,HomePage.class);
         startActivity(homepageIntent);
+        finish();
     }
 
     protected  void onActivityResult(int requestCode, int resultCode, Intent data){
@@ -181,6 +182,10 @@ public class StartScreen extends Activity implements OnClickListener {
         SharedPreferences.Editor edit = sp.edit();
         edit.putString("username", name);
         edit.commit();
+
+        SharedPreferences sp2 = getSharedPreferences(key,0);
+        String username = sp2.getString("username",null);
+
 
 //        Saving profile photo as a ParseFile
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -254,6 +259,11 @@ public class StartScreen extends Activity implements OnClickListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        SharedPreferences sp = getSharedPreferences(key, 0);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putString("username", parseUser.getUsername());
+        edit.commit();
+
         Toast.makeText(StartScreen.this, "Welcome back " + parseUser.getUsername(), Toast.LENGTH_SHORT).show();
     }
 }

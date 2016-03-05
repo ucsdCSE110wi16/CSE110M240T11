@@ -24,6 +24,7 @@ public class ParseQueryFeed {
     ArrayList<Integer> sellCategory;
     ParseQuery<ParseObject> userQuery;
     ArrayList<Integer> wantCategory;
+    ArrayList<String> objectIds;
     ArrayList<ParseQuery<ParseObject>> uQ;
     int counter;
     BuyFragment b;
@@ -50,68 +51,117 @@ public class ParseQueryFeed {
         new Update().execute();
     }
 
+    public void search(ArrayList<String> id){
+        username = new ArrayList<String>();
+        descriptions = new ArrayList<String>();
+        imageUrls = new ArrayList<String>();
+        sellCategory = new ArrayList<Integer>();
+        wantCategory = new ArrayList<Integer>();
+        objectIds = id;
+        new Search().execute();
+    }
+
+
+
+
 
     public void queryMethod(final boolean first){
         query.orderByDescending("updatedAt");
-        if(query == null){
-            System.out.println("QUERY IS NULL");
-        }
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> parseObjectList, ParseException e) {
-                for(ParseObject o : parseObjectList){
-                    if(o == null){
-                        System.out.println("IS NULL");
+
+                for (ParseObject o : parseObjectList) {
+                    if (o.getBoolean("sold") == false) {
+                        username.add(o.getString("username"));
+                        descriptions.add(o.getString("description"));
+                        sellCategory.add(o.getInt("sellCategory"));
+                        wantCategory.add(o.getInt("wantCategory"));
                     }
-                    System.out.println("USERNAME " + o.getString("username"));
-                    username.add(o.getString("username"));
-                    System.out.println("t1");
-                    descriptions.add(o.getString("description"));
-                    System.out.println("t2");
-
-                    sellCategory.add(o.getInt("sellCategory"));
-                    System.out.println("t3");
-
-                    wantCategory.add(o.getInt("wantCategory"));
                 }
                 uQ = new ArrayList();
-                for(int i = 0; i < username.size();i++){
+                for (int i = 0; i < username.size(); i++) {
                     uQ.add(ParseQuery.getQuery("Users"));
                     uQ.get(i).whereEqualTo("username", username.get(i));
                     try {
                         ParseObject obj = uQ.get(i).getFirst();
                         imageUrls.add(obj.getParseFile("profilepic").getUrl());
-                    }
-                    catch(Exception ex) {
+                    } catch (Exception ex) {
 
                     }
                 }
 
-                if(first == true) {
+                if (first == true) {
                     cardsAdapter = new CardsAdapter(context, imageUrls, sellCategory, wantCategory);
                     lv.setAdapter(cardsAdapter);
-                }
-                else{
+                } else {
                     cardsAdapter.notifyDataSetChanged();
                 }
+                b.updated = false;
+
 
             }
         });
 
+    }
 
+    public void searchMethod() throws ParseException {
+        for(int i = 0; i < objectIds.size();i++){
+            ParseObject o = query.get(objectIds.get(i));
+            if(o.getBoolean("sold") == false) {
+                username.add(o.getString("username"));
+                descriptions.add(o.getString("description"));
+                sellCategory.add(o.getInt("sellCategory"));
+                wantCategory.add(o.getInt("wantCategory"));
+            }
+
+        }
+
+        for (int i = 0; i < username.size(); i++) {
+            uQ.add(ParseQuery.getQuery("Users"));
+            uQ.get(i).whereEqualTo("username", username.get(i));
+            try {
+                ParseObject obj = uQ.get(i).getFirst();
+                imageUrls.add(obj.getParseFile("profilepic").getUrl());
+            } catch (Exception ex) {
+
+            }
+        }
+    }
+
+    public class Search extends AsyncTask<String,String,String>{
+
+        @Override
+        protected String doInBackground(String... params)  {
+            query.setLimit(10);
+            try {
+                searchMethod();
+            }
+            catch(Exception e) {
+
+            }
+            return null;
+
+        }
+        @Override
+        protected void onPostExecute(String result) {
+            // TODO Auto-generated method stub
+            super.onPostExecute(result);
+            cardsAdapter = new CardsAdapter(context, imageUrls, sellCategory, wantCategory);
+            lv.setAdapter(cardsAdapter);
+        }
     }
 
     public class Load extends AsyncTask<String,String,String> {
 
         @Override
         protected String doInBackground(String... params) {
-            long l = 1500;
+            query.setLimit(10);
             try {
-                Thread.sleep(l);
+                Thread.sleep(1500);
             }
             catch(Exception e){
 
             }
-            query.setLimit(10);
             queryMethod(true);
             return null;
         }
@@ -137,7 +187,6 @@ public class ParseQueryFeed {
         protected void onPostExecute(Void result) {
 
             super.onPostExecute(result);
-            b.updated = false;
         }
     }
 
