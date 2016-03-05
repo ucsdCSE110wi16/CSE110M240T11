@@ -18,6 +18,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/addition_info"
             android:id="@+id/additionalInfo"
+            android:typeface="monospace"
             android:textColor="@color/kale"
             android:textStyle="bold"
             android:layout_marginTop="20dp" />

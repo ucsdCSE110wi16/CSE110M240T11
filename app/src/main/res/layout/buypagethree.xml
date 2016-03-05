@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/addition_info"
+            android:typeface="monospace"
             android:id="@+id/additionalInfo"
             android:textColor="@color/kale"
             android:textStyle="bold"
