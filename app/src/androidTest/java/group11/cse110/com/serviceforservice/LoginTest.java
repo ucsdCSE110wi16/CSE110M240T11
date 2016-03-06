@@ -27,7 +27,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.*;
  */
 @RunWith(AndroidJUnit4.class)
 @LargeTest
-public class HelloWorldEspressoTest {
+public class LoginTest {
 
     @Rule
     public ActivityTestRule<StartScreen> mActivityRule = new ActivityTestRule(StartScreen.class);
@@ -48,7 +48,7 @@ public class HelloWorldEspressoTest {
     }
 
     @Test
-    public void listGoesOverTheFold() {
+    public void loginWithFacebook() {
         onView(withId(R.id.signup)).perform(click());
         onView(withId(R.id.toolbar)).check(matches(isDisplayed()));
     }

@@ -110,7 +110,6 @@ public class StartScreen extends Activity implements OnClickListener {
     public void fbSignIn(){
         Intent homepageIntent = new Intent(this,HomePage.class);
         startActivity(homepageIntent);
-        Log.d("TGE", "d");
         doneListen();
     }
 
