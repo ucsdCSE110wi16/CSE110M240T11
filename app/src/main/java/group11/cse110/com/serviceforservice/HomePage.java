@@ -1,5 +1,7 @@
 package group11.cse110.com.serviceforservice;
 
+import android.app.ActivityManager;
+import android.content.Context;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
