@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_buy"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_menu_gallery"
             android:title="Buy Feed" />
         <item
             android:id="@+id/nav_sell"
@@ -12,21 +12,17 @@
             android:title="Sell Feed" />
         <item
             android:id="@+id/nav_post_sell"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_action_name"
             android:title="Create Sell Post" />
         <item
             android:id="@+id/nav_post_buy"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_action_name"
             android:title="Create Buy Post" />
+        <item
+            android:id="@+id/nav_profilepage"
+            android:icon="@drawable/ic_menu_profile"
+            android:title="Profile" />
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-        </menu>
-    </item>
 
 </menu>

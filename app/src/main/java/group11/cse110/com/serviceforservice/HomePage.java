@@ -26,6 +26,7 @@ public class HomePage extends AppCompatActivity
     BuyFragment buyFragment;
     SellFragment sellFragment;
     buyPageOne buypageone;
+    Profile profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class HomePage extends AppCompatActivity
         buyFragment = new BuyFragment();
         sellFragment = new SellFragment();
         buypageone = new buyPageOne();
+        profile = new Profile();
 
         android.support.v4.app.FragmentTransaction fragmentTransaction =
                 getSupportFragmentManager().beginTransaction();
@@ -109,8 +111,12 @@ public class HomePage extends AppCompatActivity
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, buypageone);
             fragmentTransaction.commit();
-        } else if (id == R.id.nav_share) {
-
+        }
+        else if (id == R.id.nav_profilepage){
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, profile);
+            fragmentTransaction.commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

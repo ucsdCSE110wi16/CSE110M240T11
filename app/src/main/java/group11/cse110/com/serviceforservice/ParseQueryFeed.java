@@ -25,6 +25,8 @@ public class ParseQueryFeed {
     ParseQuery<ParseObject> userQuery;
     ArrayList<Integer> wantCategory;
     ArrayList<String> objectIds;
+    ArrayList<String> number;
+    ArrayList<String> email;
     ArrayList<ParseQuery<ParseObject>> uQ;
     int counter;
     BuyFragment b;
@@ -40,6 +42,17 @@ public class ParseQueryFeed {
         imageUrls = new ArrayList<String>();
         sellCategory = new ArrayList<Integer>();
         wantCategory = new ArrayList<Integer>();
+        number = new ArrayList<String>();
+        email = new ArrayList<String>();
+        objectIds = new ArrayList<String>();
+        frag.username = username;
+        frag.descriptions = descriptions;
+        frag.imageUrls = imageUrls;
+        frag.sellCategory = sellCategory;
+        frag.wantCategory = wantCategory;
+        frag.numbers = number;
+        frag.email = email;
+        frag.objectIds = objectIds;
         lv = listView;
     }
 
@@ -57,7 +70,15 @@ public class ParseQueryFeed {
         imageUrls = new ArrayList<String>();
         sellCategory = new ArrayList<Integer>();
         wantCategory = new ArrayList<Integer>();
+        b.username = username;
+        b.descriptions = descriptions;
+        b.imageUrls = imageUrls;
+        b.sellCategory = sellCategory;
+        b.wantCategory = wantCategory;
+        b.numbers = number;
+        b.email = email;
         objectIds = id;
+        b.objectIds = objectIds;
         new Search().execute();
     }
 
@@ -72,6 +93,7 @@ public class ParseQueryFeed {
 
                 for (ParseObject o : parseObjectList) {
                     if (o.getBoolean("sold") == false) {
+                        objectIds.add(o.getObjectId());
                         username.add(o.getString("username"));
                         descriptions.add(o.getString("description"));
                         sellCategory.add(o.getInt("sellCategory"));
@@ -84,7 +106,10 @@ public class ParseQueryFeed {
                     uQ.get(i).whereEqualTo("username", username.get(i));
                     try {
                         ParseObject obj = uQ.get(i).getFirst();
-                        imageUrls.add(obj.getParseFile("profilepic").getUrl());
+                        imageUrls.add(obj.getString("profileurl"));
+                        number.add(obj.getString("number"));
+                        email.add(obj.getString("email"));
+
                     } catch (Exception ex) {
 
                     }
@@ -121,7 +146,9 @@ public class ParseQueryFeed {
             uQ.get(i).whereEqualTo("username", username.get(i));
             try {
                 ParseObject obj = uQ.get(i).getFirst();
-                imageUrls.add(obj.getParseFile("profilepic").getUrl());
+                imageUrls.add(obj.getString("profileurl"));
+                number.add(obj.getString("number"));
+                email.add(obj.getString("email"));
             } catch (Exception ex) {
 
             }
@@ -177,8 +204,8 @@ public class ParseQueryFeed {
     public class Update extends AsyncTask<Integer,Void,Void> {
         protected Void doInBackground(Integer... params) {
             System.out.println("update");
-            counter++;
-            query.setSkip(10 * counter);
+            query.setSkip(10 + 5 * counter++);
+            query.setLimit(5);
             queryMethod(false);
             return null;
         }

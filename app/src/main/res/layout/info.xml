@@ -4,82 +4,211 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:id="@+id/listView"
-        android:layout_below= "@+id/profilePic"
-        ></ListView>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
 
-    <ImageView
-        android:layout_width="100sp"
-        android:layout_height="100sp"
-        android:id="@+id/profilePic"
-        android:background="@drawable/house"
-        android:layout_marginLeft="20dp"
-        android:layout_gravity="center"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#303F9F"
+        android:id="@+id/contact"
+        android:layout_alignParentTop="true"
+        >
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/profilepic"
+            android:button="@null"
+            android:textSize="10sp"
+            android:background="@drawable/dannyprofile"
+            android:gravity="center_horizontal|bottom"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#AAFFFFFF"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Danny K Kim"
+            android:id="@+id/name"
+            android:textColor="#AAFFFFFF"
+            android:layout_alignTop="@+id/profilepic"
+            android:layout_toRightOf="@+id/profilepic"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="408 781 2011"
+            android:layout_marginTop="3dp"
+            android:id="@+id/number"
+            android:textColor="#AAFFFFFF"
+            android:layout_below="@id/name"
+            android:layout_toRightOf="@+id/profilepic"
+            android:layout_toEndOf="@+id/profilepic"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kimkdanny@gmail.com"
+            android:layout_marginTop="3dp"
+
+            android:id="@+id/email"
+            android:textColor="#AAFFFFFF"
+            android:layout_below="@id/number"
+            android:layout_toRightOf="@+id/profilepic"
+            android:layout_toEndOf="@+id/profilepic"
+            android:layout_marginLeft="20dp"/>
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:text="Selling: "
+        android:id="@+id/mainitemdescription"
+        android:layout_below="@id/contact"
         android:gravity="center"
-        android:layout_marginTop="20dp" />
-    <ImageView
-        android:layout_width="100sp"
-        android:layout_height="100sp"
-        android:id="@+id/icon"
-        android:background="@drawable/transportation3bigger"
-        android:layout_toRightOf="@+id/profilePic"
-        android:layout_alignBottom="@+id/profilePic"
-        android:layout_marginLeft="20dp"
-        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        ></TextView>
+
+    <RelativeLayout
+        android:layout_below="@id/mainitemdescription"
+        android:id="@+id/mainitem"
+        android:layout_width="match_parent"
         android:gravity="center"
-        android:layout_centerHorizontal="true" />
+        android:layout_height="60dp">
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/itempic"
+            android:background="@drawable/finalentertainment"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/itemdescription"
+            android:gravity="center_vertical"
+            android:layout_toRightOf="@id/itempic"
+            android:text="Entertainment"
+            android:textSize="24sp"
+            android:layout_marginLeft="20dp"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/mainitem"
+        android:id="@+id/view1"
+        android:background="#3F51B5"
+        android:layout_marginTop="5dp">
+    </View>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/Selling"
-        android:text="Selling"
-        android:textSize="18sp"
-        android:gravity="left"
-        android:layout_marginTop="30dp"
-        android:layout_toRightOf="@+id/icon"
-        android:layout_marginLeft="10dp" />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tel"
-        android:text="tel:"
-        android:textSize="18sp"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="15dp"
-        android:layout_toRightOf="@+id/icon"
-        android:gravity="left"
-        android:layout_marginLeft="10dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView2"
-        android:layout_marginTop="15dp"
-        android:text="Email:"
-        android:textSize="18sp"
-        android:layout_below="@+id/textView1"
-        android:layout_toRightOf="@+id/icon"
-        android:gravity="left"
-        android:layout_marginLeft="10dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/descriptionTitle"
-        android:layout_below="@+id/listView"
+        android:layout_height="20dp"
+        android:text="In Exchange For"
+        android:id="@+id/listdescription"
+        android:layout_below="@id/view1"
         android:gravity="center"
-        android:textSize="25sp"
-        android:text="Description"/>
+        android:layout_marginTop="5dp"
+        ></TextView>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_below="@id/listdescription"
+        android:id="@+id/listinfo"
+        android:layout_marginTop="5dp"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:id="@+id/linear"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/listinfo"
+        android:id="@+id/view2"
+        android:background="#3F51B5"
+        android:layout_marginTop="5dp"
+        >
+
+    </View>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/descriptionHere"
-        android:layout_below="@id/descriptionTitle"
-        android:text="Enter description here"
-        android:textSize="15sp"/>
+        android:layout_height="20dp"
+        android:text="Description"
+        android:id="@+id/descriptionlabel"
+        android:layout_below="@id/view2"
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        ></TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:text="Here is the description"
+        android:id="@+id/description"
+        android:layout_below="@id/descriptionlabel"
+        android:layout_marginTop="5dp"
+        ></TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_below="@id/description"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:weightSum="2.15"
+        android:layout_height="wrap_content">
+        <View
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight=".05">
+        </View>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:id="@+id/bookmark"
+            android:layout_weight="1.0"
+            android:text="Bookmark"
+            android:background="#303F9F"
+            android:textColor="#AAFFFFFF"
+            ></Button>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight=".05">
+        </View>
+
+        <Button
+            android:layout_weight="1.0"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:id="@+id/contactowner"
+            android:text="Contact"
+            android:background="#303F9F"
+            android:textColor="#AAFFFFFF"
+            ></Button>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight=".05">
+        </View>
+
+    </LinearLayout>
+
+
+
 
 </RelativeLayout>
