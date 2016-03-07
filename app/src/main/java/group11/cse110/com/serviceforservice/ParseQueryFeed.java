@@ -90,7 +90,8 @@ public class ParseQueryFeed {
         query.orderByDescending("updatedAt");
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> parseObjectList, ParseException e) {
-
+                if(parseObjectList == null)
+                    return;
                 for (ParseObject o : parseObjectList) {
                     if (o.getBoolean("sold") == false) {
                         objectIds.add(o.getObjectId());
