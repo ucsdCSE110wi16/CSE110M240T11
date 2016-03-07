@@ -49,6 +49,14 @@ public class CardsAdapter extends ArrayAdapter<Integer> {
         v.setColorFilter(cf);
     }
 
+    public static void setColor(ImageView v){
+        ColorMatrix matrix = new ColorMatrix();
+        matrix.setSaturation(1); //0 means grayscale
+        ColorMatrixColorFilter cf = new ColorMatrixColorFilter(matrix);
+        v.setColorFilter(cf);
+    }
+
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -75,22 +83,22 @@ public class CardsAdapter extends ArrayAdapter<Integer> {
 
         switch(sellCategory.get(position)){
             case 1:
-                sell.setBackgroundResource(R.drawable.foodicon);
+                sell.setBackgroundResource(R.drawable.finalfood);
                 break;
             case 2:
-                sell.setBackgroundResource(R.drawable.housing);
+                sell.setBackgroundResource(R.drawable.finalhouse);
                 break;
             case 3:
-                sell.setBackgroundResource(R.drawable.entertainment);
+                sell.setBackgroundResource(R.drawable.finalentertainment);
                 break;
             case 4:
-                sell.setBackgroundResource(R.drawable.moneyicon);
+                sell.setBackgroundResource(R.drawable.finalmoney);
                 break;
             case 5:
-                sell.setBackgroundResource(R.drawable.language);
+                sell.setBackgroundResource(R.drawable.finallang);
                 break;
             case 6:
-                sell.setBackgroundResource(R.drawable.transportation);
+                sell.setBackgroundResource(R.drawable.finaltran);
                 break;
         }
 
@@ -130,6 +138,28 @@ public class CardsAdapter extends ArrayAdapter<Integer> {
                         break;
                 }
             }
+            else{
+                switch (i) {
+                    case 0:
+                        setColor(transportation);
+                        break;
+                    case 1:
+                        setColor(language);
+                        break;
+                    case 2:
+                        setColor(money);
+                        break;
+                    case 3:
+                        setColor(entertainment);
+                        break;
+                    case 4:
+                        setColor(housing);
+                        break;
+                    case 5:
+                        setColor(food);
+                        break;
+                }
+            }
         }
 
         return row;
@@ -137,30 +167,6 @@ public class CardsAdapter extends ArrayAdapter<Integer> {
 
 
 
-    private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
-        ImageView bmImage;
-
-        public DownloadImageTask(ImageView bmImage) {
-            this.bmImage = bmImage;
-        }
-
-        protected Bitmap doInBackground(String... urls) {
-            String urldisplay = urls[0];
-            Bitmap mIcon11 = null;
-            try {
-                InputStream in = new java.net.URL(urldisplay).openStream();
-                mIcon11 = BitmapFactory.decodeStream(in);
-            } catch (Exception e) {
-                Log.e("Error", e.getMessage());
-                e.printStackTrace();
-            }
-            return mIcon11;
-        }
-
-        protected void onPostExecute(Bitmap result) {
-            bmImage.setImageBitmap(result);
-        }
-    }
 
 
 }
