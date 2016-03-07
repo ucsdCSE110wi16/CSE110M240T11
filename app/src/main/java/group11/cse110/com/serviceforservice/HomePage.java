@@ -11,17 +11,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -35,6 +24,8 @@ public class HomePage extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     BuyFragment buyFragment;
+    SellFragment sellFragment;
+    buyPageOne buypageone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +34,9 @@ public class HomePage extends AppCompatActivity
         setContentView(R.layout.activity_home_page);
 
         buyFragment = new BuyFragment();
+        sellFragment = new SellFragment();
+        buypageone = new buyPageOne();
+
         android.support.v4.app.FragmentTransaction fragmentTransaction =
                 getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, buyFragment);
@@ -100,17 +94,21 @@ public class HomePage extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_buy) {
-
+        } else if (id == R.id.nav_sell) {
             android.support.v4.app.FragmentTransaction fragmentTransaction =
                     getSupportFragmentManager().beginTransaction();
             fragmentTransaction.replace(R.id.fragment_container, buyFragment);
             fragmentTransaction.commit();
-        } else if (id == R.id.nav_sell) {
-
         } else if (id == R.id.nav_post_sell) {
-
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, sellFragment);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_post_buy) {
-
+            android.support.v4.app.FragmentTransaction fragmentTransaction =
+                    getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.fragment_container, buypageone);
+            fragmentTransaction.commit();
         } else if (id == R.id.nav_share) {
 
         }

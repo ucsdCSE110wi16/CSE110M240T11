@@ -1,7 +1,12 @@
 package group11.cse110.com.serviceforservice;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +24,14 @@ public class SellFragment extends Fragment {
     //Keeps track of which radio button was selected
     static int sellDecision = 0;
     static View root;
+    boolean selectionCheck;
+
+    private boolean checkSelection(int num) {
+        if (num > 0) {
+            return true;
+        }
+        return false;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -28,6 +41,10 @@ public class SellFragment extends Fragment {
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         int width = displayMetrics.widthPixels;
         int halfWidth = width/2;
+
+        android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
+        actionBar.setTitle(Html.fromHtml("<font color=@colors/white>Sell Form</font>"));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.DKGRAY));
 
         Button cont1= (Button)rootView.findViewById(R.id.cont1Button);
 
@@ -138,23 +155,38 @@ public class SellFragment extends Fragment {
             }
         });
 
+        final AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+        alertDialog.setTitle("Oh no!");
+        alertDialog.setMessage("Please make a selection.");
+        alertDialog.setButton("Ok!", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
+            }
+        });
 
         cont1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new sellPageTwo();
-                Bundle bundle = new Bundle();
-                bundle.putInt("SellDecision", sellDecision);
+                selectionCheck = checkSelection(sellDecision);
 
-                fragment.setArguments(bundle);
-                android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                FrameLayout layout = (FrameLayout) root.findViewById(R.id.sell);
-                layout.removeAllViewsInLayout();
-                fragmentTransaction.replace(R.id.sell, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
+                if (selectionCheck) {
+                    Fragment fragment = new sellPageTwo();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("SellDecision", sellDecision);
 
+                    fragment.setArguments(bundle);
+                    android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    FrameLayout layout = (FrameLayout) root.findViewById(R.id.sell);
+                    layout.removeAllViewsInLayout();
+                    fragmentTransaction.replace(R.id.sell, fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+                }
+                else {
+                    alertDialog.show();
+                }
             }
         });
 

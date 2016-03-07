@@ -8,6 +8,7 @@
         android:id="@+id/buyPageThreeID"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
         tools:context="group11.cse110.com.serviceforservice.BlankFragment">
 
 
@@ -16,6 +17,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/addition_info"
+            android:typeface="monospace"
             android:id="@+id/additionalInfo"
             android:textColor="@color/kale"
             android:textStyle="bold"

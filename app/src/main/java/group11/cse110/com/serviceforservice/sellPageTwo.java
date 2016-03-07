@@ -1,7 +1,12 @@
 package group11.cse110.com.serviceforservice;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.text.Html;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +22,16 @@ public class sellPageTwo extends Fragment {
     static int[] exchangeDecision = new int[6];
     static View root;
     int sellDecision;
+    boolean canCont;
+
+    private boolean checkSelection(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == 1) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,6 +40,10 @@ public class sellPageTwo extends Fragment {
 
         View rootView = inflater.inflate(R.layout.sellpagetwo, container, false);
         root = rootView;
+
+        android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
+        actionBar.setTitle(Html.fromHtml("<font color=@colors/white>Sell Form</font>"));
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.DKGRAY));
 
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         int width = displayMetrics.widthPixels;
@@ -125,35 +144,50 @@ public class sellPageTwo extends Fragment {
             public void onClick(View v) {
                 if (transportation.isChecked()) {
                     exchangeDecision[5] = 1;
-                }
-                else {
+                } else {
                     exchangeDecision[5] = 0;
                 }
+            }
+        });
+
+        final AlertDialog alertDialog = new AlertDialog.Builder(getContext()).create();
+        alertDialog.setTitle("Oh no!");
+        alertDialog.setMessage("Please make at least one selection.");
+        alertDialog.setButton("Ok!", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                alertDialog.dismiss();
             }
         });
 
         cont2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Fragment fragment = new sellPageThree();
-                Bundle bundle = new Bundle();
-                bundle.putInt("SellDecision", sellDecision);
-                fragment.setArguments(bundle);
+                canCont = checkSelection(exchangeDecision);
 
-                for (int i = 0; i < exchangeDecision.length; i++) {
-                    String label = "SD" + i;
-                    bundle.putInt(label, exchangeDecision[i]);
+                if (canCont) {
+                    Fragment fragment = new sellPageThree();
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("SellDecision", sellDecision);
+                    fragment.setArguments(bundle);
+
+                    for (int i = 0; i < exchangeDecision.length; i++) {
+                        String label = "SD" + i;
+                        bundle.putInt(label, exchangeDecision[i]);
+                    }
+
+                    fragment.setArguments(bundle);
+                    android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    FrameLayout layout = (FrameLayout) root.findViewById(R.id.sellPageTwo);
+                    layout.removeAllViewsInLayout();
+                    fragmentTransaction.replace(R.id.sellPageTwo, fragment);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
                 }
-
-                fragment.setArguments(bundle);
-                android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                FrameLayout layout = (FrameLayout) root.findViewById(R.id.sellPageTwo);
-                layout.removeAllViewsInLayout();
-                fragmentTransaction.replace(R.id.sellPageTwo, fragment);
-                fragmentTransaction.addToBackStack(null);
-                fragmentTransaction.commit();
-
+                else {
+                    alertDialog.show();
+                }
             }
         });
 

@@ -5,8 +5,11 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -29,6 +32,8 @@ public class CardsAdapter extends ArrayAdapter<Integer> {
     ArrayList<Integer> wantCategory;
 
 
+
+
     public CardsAdapter(Context c,ArrayList<String> urls, ArrayList<Integer> sell, ArrayList<Integer> buy) {
         super(c, R.layout.row, R.id.buyrow, sell);
         this.context = c;
@@ -36,6 +41,14 @@ public class CardsAdapter extends ArrayAdapter<Integer> {
         this.sellCategory = sell;
         this.wantCategory = buy;
     }
+
+    public static void setGrayScale(ImageView v){
+        ColorMatrix matrix = new ColorMatrix();
+        matrix.setSaturation(0); //0 means grayscale
+        ColorMatrixColorFilter cf = new ColorMatrixColorFilter(matrix);
+        v.setColorFilter(cf);
+    }
+
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -92,29 +105,28 @@ public class CardsAdapter extends ArrayAdapter<Integer> {
             counter++;
         }
 
-        PorterDuffColorFilter greyFilter = new PorterDuffColorFilter(Color.GRAY, PorterDuff.Mode.MULTIPLY);
 
         int tagCounter = 0;
         for (int i = 0; i < 6; i++){
             if(want[i] != 1) {
                 switch (i) {
                     case 0:
-                        transportation.setColorFilter(greyFilter);
+                        setGrayScale(transportation);
                         break;
                     case 1:
-                        language.setColorFilter(greyFilter);
+                        setGrayScale(language);
                         break;
                     case 2:
-                        money.setColorFilter(greyFilter);
+                        setGrayScale(money);
                         break;
                     case 3:
-                        entertainment.setColorFilter(greyFilter);
+                        setGrayScale(entertainment);
                         break;
                     case 4:
-                        housing.setColorFilter(greyFilter);
+                        setGrayScale(housing);
                         break;
                     case 5:
-                        food.setColorFilter(greyFilter);
+                        setGrayScale(food);
                         break;
                 }
             }
@@ -122,6 +134,8 @@ public class CardsAdapter extends ArrayAdapter<Integer> {
 
         return row;
     }
+
+
 
     private class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
         ImageView bmImage;

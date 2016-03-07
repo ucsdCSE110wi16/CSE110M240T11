@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:layout_marginTop="?attr/actionBarSize">
+
+    <ImageView
+        android:layout_width="110dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+
+        android:layout_height="110dp"
+        android:id="@+id/profilepic"
+        android:src="@drawable/house" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/name"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+
+        android:text="Shaun Ardiente"
+        android:layout_toRightOf="@id/profilepic"
+        android:layout_height="50dp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/number"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="4087812011"
+        android:layout_toRightOf="@id/profilepic"
+        android:layout_below="@id/name"
+        android:layout_height="50dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_height="1dp"
+        android:layout_below="@id/number"
+
+        android:background="#888888"
+        android:id="@+id/View8"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/buylistview"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/profilepic"
+        android:text="My Posts">
+
+    </TextView>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/listView5"
+        android:layout_below="@+id/buylistview"
+        android:layout_alignLeft="@+id/profilepic"
+        android:layout_alignStart="@+id/profilepic" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/listView5"
+        android:layout_marginTop="10dp"
+        android:background="#888888"
+        android:id="@+id/View1"/>
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/buylistview3"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/View1"
+        android:text="My Sales">
+
+    </TextView>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listView10"
+        android:layout_below="@+id/buylistview3"
+        android:layout_alignLeft="@+id/profilepic"
+        android:layout_alignStart="@+id/profilepic" />
+
+
+</RelativeLayout>

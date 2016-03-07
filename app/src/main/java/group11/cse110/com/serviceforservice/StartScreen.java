@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.Signature;
@@ -66,6 +67,9 @@ public class StartScreen extends Activity implements OnClickListener {
     private ProfileTracker mProfileTracker;
     String email, name;
     ParseUser parseUser;
+    public static String key = "MySharedData";
+
+    ParseObject user;
     Bitmap bitmap;
     private StartScreenListener sL;
     private boolean signInFinished = true;
@@ -111,6 +115,7 @@ public class StartScreen extends Activity implements OnClickListener {
         Intent homepageIntent = new Intent(this,HomePage.class);
         startActivity(homepageIntent);
         doneListen();
+        finish();
     }
 
     protected  void onActivityResult(int requestCode, int resultCode, Intent data){
@@ -147,8 +152,25 @@ public class StartScreen extends Activity implements OnClickListener {
     }
     private void saveNewUser() {
         parseUser = ParseUser.getCurrentUser();
+        user = new ParseObject("Users");
         parseUser.setUsername(name);
         parseUser.setEmail(email);
+        user.put("name",name);
+        user.put("email", email);
+        ArrayList<String> list = new ArrayList<String>();
+        ArrayList<String> bookmark = new ArrayList<String>();
+        user.put("bookmarks",bookmark);
+        user.put("myPosts",list);
+        user.put("username",name);
+        SharedPreferences sp = getSharedPreferences(key, 0);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putString("username", name);
+        edit.commit();
+
+        SharedPreferences sp2 = getSharedPreferences(key,0);
+        String username = sp2.getString("username",null);
+
+
 //        Saving profile photo as a ParseFile
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 70, stream);
@@ -158,6 +180,14 @@ public class StartScreen extends Activity implements OnClickListener {
         parseFile.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
+                user.put("profilepic",parseFile);
+                user.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        user.put("profileurl", user.getParseFile("profilepic").getUrl());
+                        user.saveInBackground();
+                    }
+                });
                 parseUser.put("profileThumb", parseFile);
                 //Finally save all the user details
                 parseUser.saveInBackground(new SaveCallback() {
@@ -169,9 +199,6 @@ public class StartScreen extends Activity implements OnClickListener {
             }
         });
     }
-
-
-
     class ProfilePhotoAsync extends AsyncTask<String, String, String> {
         String url;
         public ProfilePhotoAsync(String url) {
@@ -216,6 +243,10 @@ public class StartScreen extends Activity implements OnClickListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        SharedPreferences sp = getSharedPreferences(key, 0);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putString("username", parseUser.getUsername());
+        edit.commit();
 
         Toast.makeText(StartScreen.this, "Welcome back " + parseUser.getUsername(), Toast.LENGTH_SHORT).show();
 
