@@ -75,6 +75,7 @@ public class sellPageTwo extends Fragment {
         transportation.getLayoutParams().height = halfWidth;
         transportation.getLayoutParams().width = halfWidth;
 
+
         for(int i = 0; i < exchangeDecision.length; i++) {
             exchangeDecision[i] = 0;
         }

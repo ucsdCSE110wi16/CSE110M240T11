@@ -15,8 +15,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 
+import com.parse.ParseException;
 import com.parse.ParseObject;
 
+import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +36,7 @@ public class sellPageThree extends Fragment {
     boolean descriptionCheck;
     String str;
     String username;
+    ParseQuery userQuery;
     private static final String key = "MySharedData";
 
     private boolean checkEmpty(String str) {
@@ -94,7 +98,7 @@ public class sellPageThree extends Fragment {
                 descriptionCheck = checkEmpty(str);
                 if (descriptionCheck) {
                     Fragment fragment = new BuyFragment();
-                    ParseObject sellObject = new ParseObject("Selling");
+                    final ParseObject sellObject = new ParseObject("Selling");
                     sellObject.put("sellCategory", sellSelection);
                     sellObject.put("wantCategory", buffer);
                     sellObject.put("sold", sold);
@@ -105,7 +109,26 @@ public class sellPageThree extends Fragment {
 
                     sellObject.put("description", description.getText().toString());
 
-                    sellObject.saveInBackground();
+                    sellObject.saveInBackground(new SaveCallback() {
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                userQuery = ParseQuery.getQuery("Users");
+                                userQuery.whereEqualTo("username", username);
+                                try {
+                                    ParseObject userObj = userQuery.getFirst();
+                                    List<String> list = userObj.getList("myPosts");
+                                    list.add(sellObject.getObjectId());
+                                    userObj.put("myPosts",list);
+                                    userObj.saveInBackground();
+                                }
+                                catch (Exception ex){
+
+                                }
+                            } else {
+
+                            }
+                        }
+                    });
 
                     android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

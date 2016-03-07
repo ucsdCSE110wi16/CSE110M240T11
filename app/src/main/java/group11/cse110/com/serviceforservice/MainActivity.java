@@ -20,7 +20,7 @@ public class MainActivity extends Activity {
     private Intent homePage;
     protected void onCreate(Bundle savedInstanceState){
         // Enable Local Datastore.
-        Parse.enableLocalDatastore(this);
+        Parse.enableLocalDatastore(this) ;
     // Add your initialization code here
 
         Parse.initialize(this);

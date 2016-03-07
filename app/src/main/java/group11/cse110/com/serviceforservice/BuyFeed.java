@@ -1,5 +1,32 @@
 package group11.cse110.com.serviceforservice;
 
+import android.app.Dialog;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ScrollView;
+import android.widget.SearchView;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+import java.util.ArrayList;
+import java.util.List;
+
+
 import org.w3c.dom.Text;
 
 import android.app.ActionBar;
@@ -51,7 +78,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BuyFragment extends Fragment implements AbsListView.OnScrollListener{
+public class BuyFeed extends Fragment implements AbsListView.OnScrollListener{
     SharedPreferences sp;
     public static String key = "MySharedData";
     ParseQuery<ParseObject> query;
@@ -74,7 +101,7 @@ public class BuyFragment extends Fragment implements AbsListView.OnScrollListene
     int currentVisibleItemCount;
     int totalItem;
     int currentPosition;
-    BuyFragment frag;
+    BuyFeed frag;
     int counter = 0;
     boolean bookmarked = false;
     boolean updated;
@@ -266,14 +293,13 @@ public class BuyFragment extends Fragment implements AbsListView.OnScrollListene
         numbers = new ArrayList<String>();
         email = new ArrayList<String>();
         objectIds = new ArrayList<String>();
-        query = ParseQuery.getQuery("Selling");
+        query = ParseQuery.getQuery("Buying");
         parseQueryFeed = new ParseQueryFeed(this,getActivity(),query, lv);
         parseQueryFeed.load();
         updated = false;
         frag = this;
 
         android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
-
         LayoutInflater inflator = LayoutInflater.from(getActivity());
         View v = inflator.inflate(R.layout.newsfeed_action_bar, null);
         actionBar.setDisplayShowTitleEnabled(false);
@@ -284,28 +310,28 @@ public class BuyFragment extends Fragment implements AbsListView.OnScrollListene
 
         SearchView search = (SearchView)v.findViewById(R.id.action_search);
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener( ) {
-              @Override
-              public boolean   onQueryTextChange( String newText ) {
-                  return true;
-              }
+                                          @Override
+                                          public boolean   onQueryTextChange( String newText ) {
+                                              return true;
+                                          }
 
-              @Override
-              public boolean   onQueryTextSubmit(String query) {
-                  SearchEngine search = new SearchEngine(frag);
-                  username = new ArrayList<String>();
-                  descriptions = new ArrayList<String>();
-                  imageUrls = new ArrayList<String>();
-                  sellCategory = new ArrayList<Integer>();
-                  wantCategory = new ArrayList<Integer>();
-                  objectIds = new ArrayList<String>();
-                  numbers = new ArrayList<String>();
-                  email = new ArrayList<String>();
-                  search.create("Selling");
-                  search.search("description",query);
-                  updated = true;
-                  return true;
-              }
-          }
+                                          @Override
+                                          public boolean   onQueryTextSubmit(String query) {
+                                              SearchEngine search = new SearchEngine(frag);
+                                              username = new ArrayList<String>();
+                                              descriptions = new ArrayList<String>();
+                                              imageUrls = new ArrayList<String>();
+                                              sellCategory = new ArrayList<Integer>();
+                                              wantCategory = new ArrayList<Integer>();
+                                              objectIds = new ArrayList<String>();
+                                              numbers = new ArrayList<String>();
+                                              email = new ArrayList<String>();
+                                              search.create("Buying");
+                                              search.search("description",query);
+                                              updated = true;
+                                              return true;
+                                          }
+                                      }
         );
 
         return rootView;
@@ -333,12 +359,8 @@ public class BuyFragment extends Fragment implements AbsListView.OnScrollListene
 
     @Override
     public void onScrollStateChanged(AbsListView arg0, int scrollState) {
-        System.out.println(" TOTAL " + (totalItem - currentFirstVisibleItem));
-        System.out.println("CURRENT " + currentVisibleItemCount);
-        System.out.println("TOTAL ITEM " +totalItem);
         if (updated == false && totalItem - currentFirstVisibleItem == currentVisibleItemCount
                 && totalItem >= 9 && scrollState == SCROLL_STATE_IDLE) {
-            System.out.println("UPDATE");
             parseQueryFeed.update();
         }
     }

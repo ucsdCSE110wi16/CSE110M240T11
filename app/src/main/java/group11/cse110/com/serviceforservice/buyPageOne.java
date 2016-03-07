@@ -41,8 +41,11 @@ public class buyPageOne extends Fragment{
         int halfWidth = width/2;
 
         android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(false);
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayShowTitleEnabled(true);
+
         actionBar.setTitle(Html.fromHtml("<font color=@colors/white>Buy Form</font>"));
-        actionBar.setBackgroundDrawable(new ColorDrawable(Color.DKGRAY));
 
         root = rootView;
 

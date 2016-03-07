@@ -50,13 +50,13 @@
                         style="@style/IconLabel"
                         android:gravity="top"
                         android:layout_gravity="center"
-                        android:background="@drawable/finalfood" />
+                        android:background="@drawable/finallyfood" />
 
                     <RadioButton
                         android:id="@+id/sellLanguage"
                         android:text="@string/language"
                         style="@style/IconLabel"
-                        android:background="@drawable/finallang"
+                        android:background="@drawable/finallylang"
                         android:layout_gravity="center"
                         android:gravity="top"/>
 
@@ -64,7 +64,7 @@
                         android:id="@+id/sellMoney"
                         android:text="@string/money"
                         style="@style/IconLabel"
-                        android:background="@drawable/finalmoney"
+                        android:background="@drawable/finallymoney"
                         android:layout_gravity="center"
                         android:gravity="top"/>
 
@@ -80,7 +80,7 @@
                         android:id="@+id/sellEntertainment"
                         android:text="@string/entertainment"
                         style="@style/IconLabel"
-                        android:background="@drawable/finalentertainment"
+                        android:background="@drawable/finallyentertainment"
                         android:layout_gravity="center"
                         android:gravity="top"/>
 
@@ -88,7 +88,7 @@
                         android:id="@+id/sellHousing"
                         android:text="@string/housing"
                         style="@style/IconLabel"
-                        android:background="@drawable/finalhouse"
+                        android:background="@drawable/finallyhouse"
                         android:layout_gravity="center"
                         android:gravity="top"/>
 
@@ -96,7 +96,7 @@
                         android:id="@+id/sellTransportation"
                         android:text="@string/transportation"
                         style="@style/IconLabel"
-                        android:background="@drawable/finaltran"
+                        android:background="@drawable/finallytran"
                         android:layout_gravity="center"
                         android:gravity="top"/>
 

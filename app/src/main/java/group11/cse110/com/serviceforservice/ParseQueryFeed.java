@@ -30,7 +30,9 @@ public class ParseQueryFeed {
     ArrayList<ParseQuery<ParseObject>> uQ;
     int counter;
     BuyFragment b;
+    BuyFeed buy;
     ListView lv;
+
 
     ParseQueryFeed(BuyFragment frag, Context c, ParseQuery<ParseObject> pq, ListView listView){
         query = pq;
@@ -55,6 +57,30 @@ public class ParseQueryFeed {
         frag.objectIds = objectIds;
         lv = listView;
     }
+    ParseQueryFeed(BuyFeed frag, Context c, ParseQuery<ParseObject> pq, ListView listView){
+        query = pq;
+        buy = frag;
+        this.context = c;
+        counter = 0;
+        username = new ArrayList<String>();
+        descriptions = new ArrayList<String>();
+        imageUrls = new ArrayList<String>();
+        sellCategory = new ArrayList<Integer>();
+        wantCategory = new ArrayList<Integer>();
+        number = new ArrayList<String>();
+        email = new ArrayList<String>();
+        objectIds = new ArrayList<String>();
+        frag.username = username;
+        frag.descriptions = descriptions;
+        frag.imageUrls = imageUrls;
+        frag.sellCategory = sellCategory;
+        frag.wantCategory = wantCategory;
+        frag.numbers = number;
+        frag.email = email;
+        frag.objectIds = objectIds;
+        lv = listView;
+    }
+
 
     public void load(){
         new Load().execute();
@@ -70,15 +96,28 @@ public class ParseQueryFeed {
         imageUrls = new ArrayList<String>();
         sellCategory = new ArrayList<Integer>();
         wantCategory = new ArrayList<Integer>();
-        b.username = username;
-        b.descriptions = descriptions;
-        b.imageUrls = imageUrls;
-        b.sellCategory = sellCategory;
-        b.wantCategory = wantCategory;
-        b.numbers = number;
-        b.email = email;
-        objectIds = id;
-        b.objectIds = objectIds;
+        if(buy == null) {
+            b.username = username;
+            b.descriptions = descriptions;
+            b.imageUrls = imageUrls;
+            b.sellCategory = sellCategory;
+            b.wantCategory = wantCategory;
+            b.numbers = number;
+            b.email = email;
+            objectIds = id;
+            b.objectIds = objectIds;
+        }
+        else{
+            buy.username = username;
+            buy.descriptions = descriptions;
+            buy.imageUrls = imageUrls;
+            buy.sellCategory = sellCategory;
+            buy.wantCategory = wantCategory;
+            buy.numbers = number;
+            buy.email = email;
+            objectIds = id;
+            buy.objectIds = objectIds;
+        }
         new Search().execute();
     }
 
@@ -90,8 +129,7 @@ public class ParseQueryFeed {
         query.orderByDescending("updatedAt");
         query.findInBackground(new FindCallback<ParseObject>() {
             public void done(List<ParseObject> parseObjectList, ParseException e) {
-                if(parseObjectList == null)
-                    return;
+
                 for (ParseObject o : parseObjectList) {
                     if (o.getBoolean("sold") == false) {
                         objectIds.add(o.getObjectId());
@@ -122,7 +160,10 @@ public class ParseQueryFeed {
                 } else {
                     cardsAdapter.notifyDataSetChanged();
                 }
-                b.updated = false;
+                if(b != null)
+                    b.updated = false;
+                else
+                    buy.updated = false;
 
 
             }

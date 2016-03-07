@@ -2,8 +2,6 @@ package group11.cse110.com.serviceforservice;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
@@ -71,9 +69,6 @@ public class StartScreen extends Activity implements OnClickListener {
 
     ParseObject user;
     Bitmap bitmap;
-    private StartScreenListener sL;
-    private boolean signInFinished = true;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,7 +76,31 @@ public class StartScreen extends Activity implements OnClickListener {
         signupIntent = new Intent(this, SignIn.class);
         facebook = new Intent(this, SignUp.class);
         sign = (ImageButton) findViewById(R.id.signup);
+        fb = (LoginButton) findViewById(R.id.signfacebook);
         sign.setOnClickListener(this);
+        callbackManager = CallbackManager.Factory.create();
+
+
+
+        fb.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+
+                StartScreen.this.fbSignIn();
+            }
+
+            @Override
+            public void onCancel() {
+                //TODO: Create an cancel message
+            }
+
+            @Override
+            public void onError(FacebookException error) {
+                //TODO: Create an error message
+            }
+        });
+
+
     }
 
     @Override
@@ -92,7 +111,6 @@ public class StartScreen extends Activity implements OnClickListener {
                 ArrayList<String> mPermissions = new ArrayList<String>();
                 mPermissions.add("public_profile");
                 mPermissions.add("email");
-                startListen();
                 ParseFacebookUtils.logInWithReadPermissionsInBackground(this, mPermissions, new LogInCallback() {
                     @Override
                     public void done(ParseUser user, ParseException err) {
@@ -101,11 +119,9 @@ public class StartScreen extends Activity implements OnClickListener {
                         } else if (user.isNew()) {
                             Log.d("Sign In", "User signed up and logged in through Facebook!");
                             getUserDetailsFromFB();
-                            StartScreen.this.fbSignIn();
                         } else {
                             Log.d("Sign In", "User logged in through Facebook!");
                             getUserDetailsFromParse();
-                            StartScreen.this.fbSignIn();
                         }
                     }
                 });
@@ -114,12 +130,12 @@ public class StartScreen extends Activity implements OnClickListener {
     public void fbSignIn(){
         Intent homepageIntent = new Intent(this,HomePage.class);
         startActivity(homepageIntent);
-        doneListen();
         finish();
     }
 
     protected  void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
         ParseFacebookUtils.onActivityResult(requestCode, resultCode, data);
     }
 
@@ -249,47 +265,5 @@ public class StartScreen extends Activity implements OnClickListener {
         edit.commit();
 
         Toast.makeText(StartScreen.this, "Welcome back " + parseUser.getUsername(), Toast.LENGTH_SHORT).show();
-
-    }
-
-    public interface StartScreenListener{
-        public void onProgressShown();
-        public void onProgressDismissed();
-    }
-
-    public void setStartScreenListener (StartScreenListener sL){
-        this.sL = sL;
-    }
-
-    private void startListen(){
-        if(sL != null){
-            this.signInFinished = false;
-            notifyListener(sL);
-        }
-    }
-
-    private void doneListen() {
-        if(sL != null) {
-            this.signInFinished = true;
-            notifyListener(sL);
-        }
-    }
-
-    public boolean isDone(){
-        return signInFinished;
-    }
-
-
-
-    private void notifyListener(StartScreenListener listener) {
-        if (listener == null){
-            return;
-        }
-        if (!signInFinished){
-            listener.onProgressShown();
-        }
-        else {
-            listener.onProgressDismissed();
-        }
     }
 }

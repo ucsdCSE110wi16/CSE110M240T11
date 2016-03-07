@@ -15,9 +15,15 @@ public class SearchEngine {
     private ParseQuery<ParseObject> query;
     ArrayList<String> post;
     BuyFragment frag;
+    BuyFeed feed;
     public SearchEngine(BuyFragment b){
         post = new ArrayList<>();
         frag = b;
+    }
+
+    public SearchEngine(BuyFeed b){
+        post = new ArrayList<>();
+        feed = b;
     }
 
     public void create(String className){
@@ -38,7 +44,10 @@ public class SearchEngine {
                         String id = o.getObjectId();
                         post.add(id);
                     }
-                    frag.parseQueryFeed.search(post);
+                    if(frag != null)
+                        frag.parseQueryFeed.search(post);
+                    else
+                        feed.parseQueryFeed.search(post);
                     Log.i("retrieved", "username already retrieved");
                 } else {
                     Log.d("retrieved", "Error: " + e.getMessage());

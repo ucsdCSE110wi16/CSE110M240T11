@@ -17,6 +17,9 @@ import android.widget.FrameLayout;
 
 import com.parse.ParseObject;
 
+import com.parse.ParseQuery;
+import com.parse.SaveCallback;
+import com.parse.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +35,7 @@ public class buyPageThree extends Fragment {
     boolean descriptionCheck;
     String str;
     String username;
+    ParseQuery<ParseObject> userQuery;
     private static final String key = "MySharedData";
 
     private boolean checkEmpty(String str) {
@@ -90,10 +94,10 @@ public class buyPageThree extends Fragment {
 
                 if (descriptionCheck) {
                     Fragment fragment = new BuyFragment();
-                    ParseObject buyObject = new ParseObject("Buying");
+                    final ParseObject buyObject = new ParseObject("Buying");
                     buyObject.put("sellCategory", buySelection);
                     buyObject.put("wantCategory", buffer);
-                    buyObject.put("bought", bought);
+                    buyObject.put("sold", false);
                     buyObject.put("username", username);
                     List<String> listBuyers = new ArrayList<String>();
                     buyObject.add("listofbuyers", listBuyers);
@@ -101,7 +105,26 @@ public class buyPageThree extends Fragment {
 
                     buyObject.put("description", description.getText().toString());
 
-                    buyObject.saveInBackground();
+                    buyObject.saveInBackground(new SaveCallback() {
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                userQuery = ParseQuery.getQuery("Users");
+                                userQuery.whereEqualTo("username", username);
+                                try {
+                                    ParseObject userObj = userQuery.getFirst();
+                                    List<String> list = userObj.getList("myPosts");
+                                    list.add(buyObject.getObjectId());
+                                    userObj.put("myPosts",list);
+                                    userObj.saveInBackground();
+                                }
+                                catch (Exception ex){
+
+                                }
+                            } else {
+
+                            }
+                        }
+                    });
 
                     android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                     android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -110,8 +133,7 @@ public class buyPageThree extends Fragment {
                     fragmentTransaction.replace(R.id.buyPageThree, fragment);
                     fragmentTransaction.addToBackStack(null);
                     fragmentTransaction.commit();
-                }
-                else {
+                } else {
                     alertDialog.show();
                 }
             }

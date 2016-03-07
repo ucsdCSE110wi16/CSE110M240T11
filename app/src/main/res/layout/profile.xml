@@ -3,92 +3,112 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:weightSum="1"
+    android:paddingBottom="10dp"
     android:layout_marginTop="?attr/actionBarSize">
 
-    <ImageView
-        android:layout_width="110dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#303F9F"
+        android:id="@+id/contact"
+        android:layout_alignParentTop="true"
+        >
 
-        android:layout_height="110dp"
-        android:id="@+id/profilepic"
-        android:src="@drawable/house" />
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:id="@+id/profilepic"
+            android:button="@null"
+            android:textSize="10sp"
+            android:background="@drawable/dannyprofile"
+            android:gravity="center_horizontal|bottom"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textColor="#AAFFFFFF"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Danny K Kim"
+            android:id="@+id/name"
+            android:textColor="#AAFFFFFF"
+            android:layout_alignTop="@+id/profilepic"
+            android:layout_toRightOf="@+id/profilepic"
+            android:layout_marginLeft="20dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="408 781 2011"
+            android:layout_marginTop="3dp"
+            android:id="@+id/number"
+            android:textColor="#AAFFFFFF"
+            android:layout_below="@id/name"
+            android:layout_toRightOf="@+id/profilepic"
+            android:layout_toEndOf="@+id/profilepic"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="kimkdanny@gmail.com"
+            android:layout_marginTop="3dp"
+
+            android:id="@+id/email"
+            android:textColor="#AAFFFFFF"
+            android:layout_below="@id/number"
+            android:layout_toRightOf="@+id/profilepic"
+            android:layout_toEndOf="@+id/profilepic"
+            android:layout_marginLeft="20dp"/>
+    </RelativeLayout>
+
 
     <TextView
-        android:layout_width="match_parent"
-        android:id="@+id/name"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
-
-        android:text="Shaun Ardiente"
-        android:layout_toRightOf="@id/profilepic"
-        android:layout_height="50dp" />
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:id="@+id/number"
-        android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
-        android:text="4087812011"
-        android:layout_toRightOf="@id/profilepic"
-        android:layout_below="@id/name"
-        android:layout_height="50dp" />
+        android:id="@+id/bookmarklabel"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:gravity="center_horizontal"
+        android:layout_below="@id/contact"
+        android:text="Bookmarks">
+
+    </TextView>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:id="@+id/bookmarklistview"
+        android:divider="@null"
+        android:layout_below="@+id/bookmarklabel"
+        android:layout_alignLeft="@id/contact"
+        android:layout_alignStart="@id/contact" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_marginTop="10dp"
         android:layout_height="1dp"
-        android:layout_below="@id/number"
-
-        android:background="#888888"
-        android:id="@+id/View8"/>
+        android:layout_below="@id/bookmarklistview"
+        android:layout_marginTop="10dp"
+        android:background="#303F9F"
+        android:id="@+id/View1"/>
 
     <TextView
-        android:layout_marginTop="20dp"
-        android:id="@+id/buylistview"
+        android:layout_marginTop="5dp"
+        android:id="@+id/myposts"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="20dp"
         android:gravity="center_horizontal"
-        android:layout_below="@id/profilepic"
+        android:layout_below="@id/View1"
         android:text="My Posts">
 
     </TextView>
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/listView5"
-        android:layout_below="@+id/buylistview"
-        android:layout_alignLeft="@+id/profilepic"
-        android:layout_alignStart="@+id/profilepic" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_below="@id/listView5"
-        android:layout_marginTop="10dp"
-        android:background="#888888"
-        android:id="@+id/View1"/>
-
-    <TextView
-        android:layout_marginTop="20dp"
-        android:id="@+id/buylistview3"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:gravity="center_horizontal"
-        android:layout_below="@id/View1"
-        android:text="My Sales">
-
-    </TextView>
-
-    <ListView
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/listView10"
-        android:layout_below="@+id/buylistview3"
-        android:layout_alignLeft="@+id/profilepic"
-        android:layout_alignStart="@+id/profilepic" />
+        android:id="@+id/mypostslistview"
+        android:divider="@null"
+        android:layout_below="@id/myposts"
+        android:layout_alignLeft="@id/contact"
+        android:layout_alignStart="@id/contact" />
 
 
 </RelativeLayout>

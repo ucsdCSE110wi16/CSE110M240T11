@@ -49,21 +49,21 @@
                         android:text="@string/food"
                         style="@style/IconLabel"
                         android:gravity="top"
-                        android:background="@drawable/finalfood" />
+                        android:background="@drawable/finallyfood" />
 
                     <RadioButton
                         android:id="@+id/buyLanguage"
                         android:text="@string/language"
                         style="@style/IconLabel"
                         android:gravity="top"
-                        android:background="@drawable/finallang"/>
+                        android:background="@drawable/finallylang"/>
 
                     <RadioButton
                         android:id="@+id/buyMoney"
                         android:text="@string/money"
                         style="@style/IconLabel"
                         android:gravity="top"
-                        android:background="@drawable/finalmoney"/>
+                        android:background="@drawable/finallymoney"/>
 
                 </RadioGroup>
 
@@ -78,21 +78,21 @@
                         android:text="@string/entertainment"
                         style="@style/IconLabel"
                         android:gravity="top"
-                        android:background="@drawable/finalentertainment"/>
+                        android:background="@drawable/finallyentertainment"/>
 
                     <RadioButton
                         android:id="@+id/buyHousing"
                         android:text="@string/housing"
                         style="@style/IconLabel"
                         android:gravity="top"
-                        android:background="@drawable/finalhouse"/>
+                        android:background="@drawable/finallyhouse"/>
 
                     <RadioButton
                         android:id="@+id/buyTransportation"
                         android:text="@string/transportation"
                         style="@style/IconLabel"
                         android:gravity="top"
-                        android:background="@drawable/finaltran"/>
+                        android:background="@drawable/finallytran"/>
 
                 </RadioGroup>
 

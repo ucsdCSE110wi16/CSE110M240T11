@@ -42,7 +42,10 @@ public class SellFragment extends Fragment {
         int width = displayMetrics.widthPixels;
         int halfWidth = width/2;
 
+
+
         android.support.v7.app.ActionBar actionBar = ((HomePage)getActivity()).getSupportActionBar();
+
         actionBar.setTitle(Html.fromHtml("<font color=@colors/white>Sell Form</font>"));
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.DKGRAY));
 
