@@ -23,7 +23,8 @@ import static android.support.test.espresso.assertion.ViewAssertions.*;
 import static android.support.test.espresso.matcher.ViewMatchers.*;
 
 /**
- * Created by David on 3/4/2016.
+ * Created by David on 3/4/2016.\
+ * Test for Login
  */
 @RunWith(AndroidJUnit4.class)
 @LargeTest

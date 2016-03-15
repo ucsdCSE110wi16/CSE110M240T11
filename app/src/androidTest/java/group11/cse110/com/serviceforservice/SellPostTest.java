@@ -35,6 +35,7 @@ import static org.hamcrest.Matchers.is;
 
 /**
  * Created by David on 3/6/2016.
+ * Test for posting a sell post
  */
 @RunWith(AndroidJUnit4.class)
 @LargeTest
